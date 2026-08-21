@@ -2,6 +2,7 @@ import { Router } from "express";
 import prisma from "../lib/prisma";
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
+import { emailServico }  from "../services/emailService";
 
 const router = Router();
 
@@ -27,6 +28,9 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
         const salt = await bcrypt.genSalt(10);
         const senhaCriptografada= await bcrypt.hash(senha, salt);
 
+        // Codigo gerado
+        const codigoGerado = Math.floor(100000 + Math.random() * 900000).toString();
+
         // Caso o usuario não 
         if (!buscarUsuario) {
             
@@ -34,9 +38,12 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
                 data: {
                     nome: nome,
                     email: email,
-                    senha: senhaCriptografada
+                    senha: senhaCriptografada,
+                    codigoVerificacao: codigoGerado
                 }
             });
+
+            emailServico(email, codigoGerado);
 
             return res.status(201).json({mensagem: "Conta cadastrada com sucesso."});
         }else {

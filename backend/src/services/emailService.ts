@@ -1,37 +1,38 @@
 import nodemailer from "nodemailer";
 
-// Create a transporter using SMTP
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // treue  só para a porta 467 as outras é false
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-    }
-})
+export async function emailServico(email: string, codigoGerado: string) {
+    // Create a transporter using SMTP
+    const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, // treue  só para a porta 467 as outras é false
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+        }
+    });
 
-    async function exemplo() {
-        try {
+    // Verify do transporter
+    try {
             await transporter.verify();
         } catch (error) {
-        
-        }
-    }
+            console.log("Erro:" + error);
+        };
 
-    try {
+
+        // Enviar os emails
+        try {
 
         transporter.sendMail({
-            from: `Empresa Vulto <${process.env.SMTP_USER}>`, // Quem esta enviando 
-            to: `${process.env.EmailTeste}`,
-            subject: "Ola, codigo para acessar a sua conta:> CODIGO",
-            html: "<H1>Ola</H1> <p>Esse é um email teste para enviar emails.</p>",
-            text: "Ola, Esse é um email teste para enviar emails. "
+            from: `noroleplay<${process.env.SMTP_USER}>`, // Quem esta enviando 
+            to: `${email}`,
+            subject: `Codigo de verificação`,
+            html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar o seu Email:> ${codigoGerado}</p>`,
+            text: `Esse é o seu codigo para verificar o seu Email:> ${codigoGerado}`
         })
         .then(() => console.log("Email enviado com sucesso!")); 
 
-    } catch (error) {
-        console.log("Erro" + error);
-    };
-
-
+        } catch (error) {
+            console.log("Erro" + error);
+        };
+};

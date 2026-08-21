@@ -12,4 +12,6 @@ model usuarios {
     nome              String
     email             String  @unique
     senha             String
+    emailVerificado   Boolean @default(false)
+    codigoVerificacao String?
 }

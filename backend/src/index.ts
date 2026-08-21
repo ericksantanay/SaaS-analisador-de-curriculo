@@ -6,7 +6,10 @@ const app = express();
 
 // Importações das rotas
 import cadastroDeUsuarios from "./router/cadastroDeUsuarios";
-import "./services/emailService";
+import verificadorDeEmails from "./controller/controllerEmail";
+
+// import "./services/emailService";
+
 
 // Dotoenv
 import "dotenv/config";
@@ -25,6 +28,7 @@ app.use(cors()); // Depois colocar só as URLS que serão permitidas
 // ######################################
 // conectando as rotas no servidor
 app.use(cadastroDeUsuarios);
+app.use(verificadorDeEmails);
 // app.use(enviarEmails);
 
 
