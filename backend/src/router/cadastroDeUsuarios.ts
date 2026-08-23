@@ -29,7 +29,7 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
         const senhaCriptografada= await bcrypt.hash(senha, salt);
 
         // Codigo gerado
-        const codigoGerado = Math.floor(100000 + Math.random() * 900000).toString();
+        const codigoGerado = Math.floor(100000 + Math.random() * 1000000).toString();
 
         // Caso o usuario não 
         if (!buscarUsuario) {
@@ -39,7 +39,8 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
                     nome: nome,
                     email: email,
                     senha: senhaCriptografada,
-                    codigoVerificacao: codigoGerado
+                    codigoVerificacao: codigoGerado,
+                    role: "cliente"
                 }
             });
 

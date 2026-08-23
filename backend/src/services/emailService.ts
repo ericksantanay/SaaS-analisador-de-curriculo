@@ -28,7 +28,7 @@ export async function emailServico(email: string, codigoGerado: string) {
             to: `${email}`,
             subject: `Codigo de verificação`,
             html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar o seu Email:> ${codigoGerado}</p>`,
-            text: `Esse é o seu codigo para verificar o seu Email:> ${codigoGerado}`
+            text: `Esse é o seu codigo para verificar o seu Email:${codigoGerado}`
         })
         .then(() => console.log("Email enviado com sucesso!")); 
 
