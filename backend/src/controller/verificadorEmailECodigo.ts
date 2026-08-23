@@ -6,7 +6,6 @@ const router = Router();
 
 router.post("/verificarCodigo", async (req: Request, res: Response) => {
 
-    // Fazer a verificação do email + codigo
     const {email, codigoVerificacao} = req.body;
 
     if (!email || ! codigoVerificacao) {
