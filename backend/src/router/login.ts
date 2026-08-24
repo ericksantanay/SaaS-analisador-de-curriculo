@@ -1,4 +1,4 @@
-import Router, {CookieOptions}  from "express";;
+import Router, {CookieOptions}  from "express";
 import prisma from "../lib/prisma";
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
