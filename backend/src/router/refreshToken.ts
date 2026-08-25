@@ -1,6 +1,5 @@
 import Router, {CookieOptions}  from "express";
 import jwt from "jsonwebtoken";
-import prisma from "../lib/prisma";
 import { Request, Response } from "express";
 // refazer o refresh token
 
@@ -12,24 +11,35 @@ type ID = {
 
 router.post("/refreshToken", (req: Request, res: Response) => {
 
-    const refreshToken = req.cookies.refreshToken;
+    const refresh = req.cookies.refreshToken;
 
-    if (!refreshToken) {
+    if (!refresh) {
         return res.status(401).json({mensagem: "Acesso negado. Token não fornecido."});
     };
 
     try {
 
         // Verificando o refresh
-        const refreshTokenVerficiado = jwt.verify(refreshToken, process.env.REFRESH_SECRET ?? '') 
+        const refreshTokenVerficiado = jwt.verify(refresh, process.env.REFRESH_SECRET ?? '') as ID 
 
+        // Criando um novo token
         const token = jwt.sign({id: refreshTokenVerficiado.id}, process.env.JWT_SECRET ?? "", {expiresIn: "10m"});
+
+        // Configuração do cookies
+        const configCookie: CookieOptions = {
+            httpOnly: true,
+            secure: false,
+            sameSite: 'strict',
+            maxAge: 10 * 60 * 1000
+        };
+
+        res.cookie('acessToken', token, configCookie);
+
+        return res.status(201).json({mensagem: "Refresh criado com sucesso"});
         
     } catch (error) {
         return res.status(401).json({ error: 'Token inválido ou expirado' });
-    }
-
-
+    };
 
 });
 
