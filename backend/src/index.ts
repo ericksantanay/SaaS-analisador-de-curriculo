@@ -9,6 +9,7 @@ import cadastroDeUsuarios from "./router/cadastroDeUsuarios";
 import verificadorDeEmails from "./controller/verificadorEmailECodigo";
 import  controllerEmail from "./controller/verificadorEmailECodigo";
 import refreshToken from "./router/refreshToken";
+import analiseCurriculo from "./router/analisarCurriculo";
 
 
 // Dotoenv
@@ -29,7 +30,8 @@ app.use(cors()); // Depois colocar só as URLS que serão permitidas
 app.use(cadastroDeUsuarios);
 app.use(verificadorDeEmails);
 app.use(controllerEmail);
-app.use(refreshToken)
+app.use(refreshToken);
+app.use(analiseCurriculo);
 
 
 
