@@ -2,6 +2,7 @@ import Router from "express";
 import { Request, Response } from "express";
 import multer from "multer";
 import fs from "fs";
+import {verificarAutenticacao} from "../middleware/authMiddleware"
 
 const router = Router();
 
@@ -17,7 +18,7 @@ const storage = multer.diskStorage({
 
 });
 
-router.post("/analisarCurriculo", async (req: Request, res: Response) => {
+router.post("/analisarCurriculo", verificarAutenticacao, async (req: Request, res: Response) => {
 
     const { GoogleGenAI } = await import("@google/genai");
 
@@ -176,6 +177,8 @@ router.post("/analisarCurriculo", async (req: Request, res: Response) => {
             if (!response.text) {
                 return res.status(500).json({mensagem: "A IA não retornou uma resposta"});
             };
+
+            // Salvar no banco de dados com o prisma.
 
             return res.status(200).json(JSON.parse(response.text));;
 

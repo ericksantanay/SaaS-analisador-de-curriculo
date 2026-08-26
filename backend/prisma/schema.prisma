@@ -15,10 +15,15 @@ model usuarios {
     emailVerificado   Boolean @default(false)
     codigoVerificacao String?
     role              String
+
+    pesquisa          promptsCurriculos[]
 }
 
 model promptsCurriculos {
     id                String  @id @default(auto()) @map("_id") @db.ObjectId
     prompt            String
     pdfCurriculo      String    
+
+    userId            String   @db.ObjectId
+    usuario           usuarios @relation(fields: [userId], references: [id])
 }
