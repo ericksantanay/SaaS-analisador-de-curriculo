@@ -7,9 +7,12 @@ const app = express();
 // Importações das rotas
 import cadastroDeUsuarios from "./router/cadastroDeUsuarios";
 import verificadorDeEmails from "./controller/verificadorEmailECodigo";
-import  controllerEmail from "./controller/verificadorEmailECodigo";
+import controllerEmail from "./controller/verificadorEmailECodigo";
 import refreshToken from "./router/refreshToken";
 import analiseCurriculo from "./router/analisarCurriculo";
+import loginDeUsuarios from "./router/login";
+import planoPro from "./router/planoPro";
+import planoFull from "./router/planoFull"
 
 
 // Dotoenv
@@ -32,6 +35,9 @@ app.use(verificadorDeEmails);
 app.use(controllerEmail);
 app.use(refreshToken);
 app.use(analiseCurriculo);
+app.use(loginDeUsuarios);
+app.use(planoPro);
+app.use(planoFull);
 
 
 
