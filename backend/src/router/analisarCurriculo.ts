@@ -44,7 +44,6 @@ router.post("/analisarCurriculo", verificarAutenticacao, async (req: Request, re
 
         }).single("pdfCurriculo");
 
-
         upload(req, res, async function (err) {
 
             if (err instanceof multer.MulterError) {
@@ -56,7 +55,6 @@ router.post("/analisarCurriculo", verificarAutenticacao, async (req: Request, re
 
             }
 
-
             if (err) {
 
                 return res.status(400).json({
@@ -66,9 +64,7 @@ router.post("/analisarCurriculo", verificarAutenticacao, async (req: Request, re
 
             }
 
-
             const { prompt } = req.body;
-
 
             if (!prompt) {
 
@@ -78,14 +74,11 @@ router.post("/analisarCurriculo", verificarAutenticacao, async (req: Request, re
 
             }
 
-
             console.log(req.file);
-
 
             const pdfInteiro = req.file;
 
             const nomePdf = req.file?.filename;
-
 
             if (!pdfInteiro) {
                 return res.status(404).json({mensagem: "Adicione um PDF"});
@@ -99,12 +92,9 @@ router.post("/analisarCurriculo", verificarAutenticacao, async (req: Request, re
                 apiKey: process.env.API_KEY
             });
 
-
             const response = await ia.models.generateContent({
 
                 model: "gemini-3.6-flash",
-
-                
 
                 contents: [
                     {

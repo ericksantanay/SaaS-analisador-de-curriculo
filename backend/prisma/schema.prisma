@@ -15,6 +15,9 @@ model usuarios {
     emailVerificado   Boolean @default(false)
     codigoVerificacao String?
     role              String
+    analises          Int @default(3)
+    historico         Boolean @default(false)
+    plano             String
 
     pesquisa          promptsCurriculos[]
 }

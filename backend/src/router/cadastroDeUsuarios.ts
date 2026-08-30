@@ -40,7 +40,8 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
                     email: email,
                     senha: senhaCriptografada,
                     codigoVerificacao: codigoGerado,
-                    role: "cliente"
+                    role: "cliente",
+                    plano: "gratis"
                 }
             });
 
