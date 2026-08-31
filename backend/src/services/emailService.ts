@@ -19,7 +19,6 @@ export async function emailServico(email: string, codigoGerado: string) {
             console.log("Erro:" + error);
         };
 
-
         // Enviar os emails
         try {
 

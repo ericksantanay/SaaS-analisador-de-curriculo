@@ -1,0 +1,1 @@
+import { MercadoPagoConfig, Order } from "mercadopago";
