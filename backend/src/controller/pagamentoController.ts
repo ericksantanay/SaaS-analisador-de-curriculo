@@ -1,12 +1,52 @@
-// 2. Controller (O Garçom / Atendente)
-// O Controller é o intermediário entre o cliente (seu frontend) e as regras do seu negócio. Pense nele como um garçom em um restaurante.
+import { Request, Response } from "express";
+import { mercadoPagoServicePlanoPro, mercadoPagoServicePlanoFull } from "../services/mercadoPagoService";
 
-// O que ele faz:
+// Interface para estender o Request do Express com a nossa propriedade customizada
+interface RequestUserId extends Request {
+  userId?: string;
+}
 
-// Recebe o pedido: Pega os dados que o usuário enviou na requisição (como ID do usuário, plano escolhido ou e-mail).
+export class PagamentoController {
+  
+  // Trata a requisição do Plano Pro
+  async handlePlanoPro(req: RequestUserId, res: Response) {
+    try {
+      // Pega o ID injetado pelo Middleware de Autenticação
+      const userId = req.userId;
+      
+      // Validação: garante que o middleware realmente injetou o ID
+      if (!userId) {
+        return res.status(401).json({ error: "Usuário não autenticado." });
+      };
 
-// Faz validações básicas: Checa se as informações necessárias realmente vieram na requisição (ex: "O e-mail foi enviado?").
+      // Chama o Service passando apenas a string do userId
+      const subscription = await mercadoPagoServicePlanoPro(userId);
 
-// Passa a ordem adiante: Chama o Service correto para fazer o trabalho pesado.
+      // Retorna a resposta contendo a URL de checkout (init_point)
+      return res.status(201).json(subscription);
+    } catch (error) {
+      return res.status(500).json({ error: "Erro ao criar assinatura do Plano Pro." });
+    };
+  };
 
-// Devolve a resposta: Quando o Service termina, o Controller pega o resultado e responde ao cliente com um código de status (como 200 Sucesso ou 400 Erro).
+  // Trata a requisição do Plano Full
+  async handlePlanoFull(req: RequestUserId, res: Response) {
+    try {
+      // Pega o ID injetado pelo Middleware de Autenticação
+      const userId = req.userId;
+
+      // Validação: garante que o middleware realmente injetou o ID
+      if (!userId) {
+        return res.status(401).json({ error: "Usuário não autenticado." });
+      };
+
+      // Chama o Service passando apenas a string do userId
+      const subscription = await mercadoPagoServicePlanoFull(userId);
+
+      // Retorna a resposta contendo a URL de checkout (init_point)
+      return res.status(201).json(subscription);
+    } catch (error) {
+      return res.status(500).json({ error: "Erro ao criar assinatura do Plano Full." });
+    };
+  };
+};
