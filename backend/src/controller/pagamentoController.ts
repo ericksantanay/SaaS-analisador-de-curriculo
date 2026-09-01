@@ -46,6 +46,7 @@ export class PagamentoController {
       // Retorna a resposta contendo a URL de checkout (init_point)
       return res.status(201).json(subscription);
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ error: "Erro ao criar assinatura do Plano Full." });
     };
   };

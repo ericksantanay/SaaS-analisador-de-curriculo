@@ -1,4 +1,4 @@
-import { MercadoPagoConfig, PreApproval } from "mercadopago";
+import { MercadoPagoConfig, Preference } from "mercadopago";
 import prisma from "../lib/prisma";
 
 // Client
@@ -20,25 +20,34 @@ export async function mercadoPagoServicePlanoPro(userId: string) {
     };
 
     // Inicializando o objeto da API
-    const preApproval = new PreApproval(client);
+    const preference = new Preference(client);
 
-    const planoPro = {
-        reason: "Assinatura do Plano Pro",
-        external_reference: user.id, // ID do usuário que está assinando (vindo do banco)
-        payer_email: user.email, 
-        back_url: "Aqui vai ser o link de uma pagina de sucesso tenho que fazer o frontend", // Depois por link da pagina de sucesso
-        status: "authorized",
-        auto_recurring: {
-            frequency: 1,
-            frequency_type: "months",
-            transaction_amount: 9.90, // Valor mensal do plano
-            currency_id: "BRL",
+    const planoPro = await preference.create({
+        body: {
+            items: [
+                {
+                    id: "plano_pro",
+                    title: "Plano Pro - Acesso Mensal - Analisador de Cúrriculos",
+                    quantity: 1,
+                    unit_price: 9.90, // Valor em número
+                    currency_id: "BRL"
+                }
+            ],
+            payer: {
+                email: user.email,
+            },
+            external_reference: user.id, // O ID do seu usuário continua aqui para você resgatar no Webhook!
+            back_urls: {
+                success: "https://www.google.com.br", // URL temporária de sucesso
+                failure: "https://www.google.com.br",
+                pending: "https://www.google.com.br"
+            },
+            auto_return: "approved", // Se aprovado, redireciona o usuário automaticamente de volta para o seu site
         }
-    };
+    });
 
-    // Faz a requisição ao Mercado Pago e retorna a resposta
-    const response = await preApproval.create({ body: planoPro });
-    return response;
+    // O Preference retorna um objeto contendo o 'init_point'
+    return planoPro;
 
 };
 
@@ -56,23 +65,31 @@ export async function mercadoPagoServicePlanoFull(userId: string) {
     };
 
     // Inicializando o objeto da API
-    const preApproval = new PreApproval(client);
+    const preference = new Preference(client);
 
-    const planoFull = {
-        reason: "Assinatura do Plano Full",
-        external_reference: user.id, // ID do usuário que está assinando (vindo do seu banco)
-        payer_email: user.email, 
-        back_url: "Aqui vai ser o link de uma pagina de sucesso tenho que fazer o frontend",
-        status: "authorized",
-        auto_recurring: {
-            frequency: 1,
-            frequency_type: "months",
-            transaction_amount: 19.00, // Valor mensal do plano
-            currency_id: "BRL",
+    const planoFull = await preference.create({
+        body: {
+            items: [
+                {
+                    id: "plano_full",
+                    title: "Plano Full - Acesso Mensal - Analisador de Cúrriculos",
+                    quantity: 1,
+                    unit_price: 9.90, // Valor
+                    currency_id: "BRL"
+                }
+            ],
+            payer: {
+                email: user.email,
+            },
+            external_reference: user.id, // O ID do usuário
+            back_urls: {
+                success: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77", // URL temporária de sucesso
+                failure: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77",
+                pending: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77"
+            },
+            auto_return: "approved", // Se aprovado, redireciona o usuário automaticamente de volta para o seu site
         }
-    };
+    });
 
-    // Faz a requisição ao Mercado Pago e retorna a resposta
-    const response = await preApproval.create({ body: planoFull });
-    return response;
+    return planoFull;
 };
