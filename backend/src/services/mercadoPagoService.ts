@@ -74,7 +74,7 @@ export async function mercadoPagoServicePlanoFull(userId: string) {
                     id: "plano_full",
                     title: "Plano Full - Acesso Mensal - Analisador de Cúrriculos",
                     quantity: 1,
-                    unit_price: 9.90, // Valor
+                    unit_price: 19.00, // Valor
                     currency_id: "BRL"
                 }
             ],
@@ -85,7 +85,7 @@ export async function mercadoPagoServicePlanoFull(userId: string) {
             back_urls: {
                 success: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77", // URL temporária de sucesso
                 failure: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77",
-                pending: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77"
+                pending: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77b "
             },
             auto_return: "approved", // Se aprovado, redireciona o usuário automaticamente de volta para o seu site
         }
