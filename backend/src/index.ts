@@ -13,6 +13,7 @@ import analiseCurriculo from "./router/analisarCurriculo";
 import loginDeUsuarios from "./router/login";
 import planoPro from "./router/planoPro";
 import planoFull from "./router/planoFull"
+import webhook from "./router/webhook.routes";
 
 
 // Dotoenv
@@ -38,6 +39,7 @@ app.use(analiseCurriculo);
 app.use(loginDeUsuarios);
 app.use(planoPro);
 app.use(planoFull);
+app.use(webhook);
 
 
 

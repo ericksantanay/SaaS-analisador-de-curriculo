@@ -37,6 +37,7 @@ export async function mercadoPagoServicePlanoPro(userId: string) {
                 email: user.email,
             },
             external_reference: user.id, // O ID do seu usuário continua aqui para você resgatar no Webhook!
+            notification_url: "https://mulberry-wick-wooing.ngrok-free.dev/webhook",
             back_urls: {
                 success: "https://www.google.com.br", // URL temporária de sucesso
                 failure: "https://www.google.com.br",
@@ -82,6 +83,7 @@ export async function mercadoPagoServicePlanoFull(userId: string) {
                 email: user.email,
             },
             external_reference: user.id, // O ID do usuário
+            notification_url: "https://mulberry-wick-wooing.ngrok-free.dev/webhook",
             back_urls: {
                 success: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77", // URL temporária de sucesso
                 failure: "https://www.mercadopago.com.br/checkout/v1/payment/redirect/fd4b82a1-7cf5-4887-981f-28ed21f282b8/review/?preference-id=3655964097-cbd2b7be-6afb-4ee4-89d9-3401cc4774a0&router-request-id=f7a701c9-bbdb-4a3e-85e5-09f435757d87&p=4f3ca7e7cae4447235938efe529b3a77",

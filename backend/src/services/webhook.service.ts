@@ -9,15 +9,13 @@ const client = new MercadoPagoConfig({
 
 export async function buscarPagamento(paymentId: string) {
 
-    // Criando o objeto que permite trabalhar com pagamentos
     const payment = new Payment(client);
 
     const pagamento = await payment.get({
         id: paymentId
     });
 
-    console.log(pagamento)
+    console.log("Pagamento consultado:", pagamento);
 
     return pagamento;
-
-}
+};
