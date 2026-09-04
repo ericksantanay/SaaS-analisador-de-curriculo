@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import { mercadoPagoServicePlanoPro, mercadoPagoServicePlanoFull } from "../services/mercadoPagoService";
+import {planoProService, planoFullService} from "../services/regraDosPlanos";
 
 // Interface para estender o Request do Express com a nossa propriedade customizada
 interface RequestUserId extends Request {
   userId?: string;
-}
+};
 
 export class PagamentoController {
   
@@ -21,6 +22,7 @@ export class PagamentoController {
 
       // Chama o Service passando apenas a string do userId
       const subscription = await mercadoPagoServicePlanoPro(userId);
+      await planoProService(userId);
 
       // Retorna a resposta contendo a URL de checkout (init_point)
       return res.status(201).json(subscription);
@@ -42,6 +44,7 @@ export class PagamentoController {
 
       // Chama o Service passando apenas a string do userId
       const subscription = await mercadoPagoServicePlanoFull(userId);
+      await planoFullService(userId)
 
       // Retorna a resposta contendo a URL de checkout (init_point)
       return res.status(201).json(subscription);
