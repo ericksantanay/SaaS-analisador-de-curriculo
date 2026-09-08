@@ -1,12 +1,12 @@
 import prisma from "../lib/prisma";
 
 // Plano Pro
-export async function planoProService(userId: string) {
+export async function planoProService(idUser: string) {
 
     // Buscando o Usuario
     const user = await prisma.usuarios.findUnique({
         where: {
-            id: userId
+            id: idUser
         }
     });
 
@@ -17,7 +17,7 @@ export async function planoProService(userId: string) {
     // Atualizando o Plano
     const atualizandoPlanoPro = await prisma.usuarios.update({
         where: {
-            id: userId
+            id: idUser
         },
         data: {
             plano: "pro",
@@ -35,12 +35,12 @@ export async function planoProService(userId: string) {
 
 
 // Plano Full
-export async function planoFullService(userId: string) {
+export async function planoFullService(idUser: string) {
 
     // Buscando o Usuario
     const user = await prisma.usuarios.findUnique({
         where: {
-            id: userId
+            id: idUser
         }
     });
 
@@ -53,7 +53,7 @@ export async function planoFullService(userId: string) {
     // Atualizando o Plano para o Full
     const atualizandoPlanoFull = await prisma.usuarios.update({
         where: {
-            id: userId
+            id: idUser
         },
         data: {
             plano: "full",
