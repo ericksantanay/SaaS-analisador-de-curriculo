@@ -32,6 +32,8 @@ export async function webhookController(req: Request, res: Response) {
             return res.status(404).json({mensagem: "Usuario não existe"});
         };
 
+        let tipoDoPlano = pagamento.items
+
         if (pagamento.status !== "approved") {
             return res.status(200).json({mensagem: "Pagamento não aprovado"});
         };
@@ -39,9 +41,12 @@ export async function webhookController(req: Request, res: Response) {
         if (pagamento.status === "approved") {
             res.status(200).json({mensagem: "Pagamento aprovado"});
             // Passando o id do usuario pela função;
+
             await planoProService(idUser);
             await planoFullService(idUser);
         };
+
+        
         
         
 
