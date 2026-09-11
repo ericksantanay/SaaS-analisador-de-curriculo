@@ -9,7 +9,7 @@ const pagamentoControllerRouter = new PagamentoController();
 
 interface RequestUserId extends Request {
     userId?: string
-}
+};
 
 router.post("/planoFull", verificarAutenticacao, async (req: RequestUserId, res: Response) => {
 

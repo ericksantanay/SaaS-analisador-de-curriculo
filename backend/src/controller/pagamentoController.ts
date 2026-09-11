@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { mercadoPagoServicePlanoPro, mercadoPagoServicePlanoFull } from "../services/mercadoPagoService";
-import {planoProService, planoFullService} from "../services/regraDosPlanos";
 
 // Interface para estender o Request do Express com a nossa propriedade customizada
 interface RequestUserId extends Request {

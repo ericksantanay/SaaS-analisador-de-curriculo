@@ -8,18 +8,19 @@ datasource db {
 }
 
 model usuarios {
-    id                String  @id @default(auto()) @map("_id") @db.ObjectId
-    nome              String
-    email             String  @unique
-    senha             String
-    emailVerificado   Boolean @default(false)
-    codigoVerificacao String?
-    role              String
-    analises          Int @default(3)
-    historico         Boolean @default(false)
-    plano             String
+    id                  String  @id @default(auto()) @map("_id") @db.ObjectId
+    nome                String
+    email               String  @unique
+    senha               String
+    emailVerificado     Boolean @default(false)
+    codigoVerificacao   String?
+    tentativasDoCodigo  Int @default(0)
+    role                String
+    analises            Int @default(3)
+    historico           Boolean @default(false)
+    plano               String
 
-    pesquisa          promptsCurriculos[]
+    pesquisa            promptsCurriculos[]
 }
 
 model promptsCurriculos {

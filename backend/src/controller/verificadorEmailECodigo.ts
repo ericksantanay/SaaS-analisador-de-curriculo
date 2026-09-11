@@ -6,18 +6,17 @@ const router = Router();
 
 router.post("/verificarCodigo", async (req: Request, res: Response) => {
 
-    const {email, codigoVerificacao} = req.body;
+    const { email, codigoVerificacao } = req.body;
 
-    if (!email || ! codigoVerificacao) {
-        return res.status(404).json({mensagem: "Email e codigo invalido."});
+    if (!email || !codigoVerificacao) {
+        return res.status(400).json({mensagem: "Email e codigo invalido."});
     };
 
     try {
-      
+
         const usuario = await prisma.usuarios.findFirst({
             where: {
-                email: email,
-                codigoVerificacao: codigoVerificacao
+                email: email
             }
         });
 
@@ -25,25 +24,68 @@ router.post("/verificarCodigo", async (req: Request, res: Response) => {
             return res.status(404).json({mensagem: "Usuario não existe"});
         };
 
-        if (usuario.codigoVerificacao === codigoVerificacao && usuario.email === email) {
+        if (usuario.emailVerificado) {
+            return res.status(400).json({mensagem: "Email já foi verificado."});
+        };
 
-            await prisma.usuarios.update({ 
+        if (usuario.tentativasDoCodigo >= 4) {
+            return res.status(403).json({mensagem: "Tentativas falhas, gere um codigo novo"});
+        };
+
+        if (usuario.codigoVerificacao === codigoVerificacao) {
+
+            await prisma.usuarios.update({
+
+                where: {
+                    id: usuario.id
+                },
+
+                data: {
+                    emailVerificado: true,
+                    tentativasDoCodigo: 0
+                }
+
+            });
+
+            return res.status(200).json({mensagem: "Email e codigo verificado com sucesso."});
+
+        } else {
+
+            const incrementarTentativa = usuario.tentativasDoCodigo + 1;
+
+            await prisma.usuarios.update({
                 where: {
                     id: usuario.id
                 },
                 data: {
-                    emailVerificado: true
+                    tentativasDoCodigo: incrementarTentativa
                 }
             });
 
-            return res.status(200).json({mensagem: "Email e codigo verificado com sucesso."});
-        }else {
-            return res.status(403).json({mensagem: "Email não verificado"});
+            if (incrementarTentativa >= 4) {
+
+                await prisma.usuarios.update({
+                    where: {
+                        id: usuario.id
+                    },
+                    data: {
+                        codigoVerificacao: null,
+                        tentativasDoCodigo: 4
+                    }
+                });
+
+                return res.status(403).json({mensagem: "Tentativas falhas, gere um codigo novo"});
+            };
+
+            return res.status(403).json({mensagem: `Codigo incorreto. Tentativa ${incrementarTentativa} de 4.`});
         };
-        
+
     } catch (error) {
+
         console.log("Erro no controller:" + error);
-        return res.status(500).json({mensagem: "Erro no servidor"});
+        return res.status(500).json({
+            mensagem: "Erro no servidor"
+        });
     };
 });
 
