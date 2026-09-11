@@ -1,4 +1,4 @@
-import { MercadoPagoConfig, Payment } from "mercadopago";
+import { MercadoPagoConfig, Payment} from "mercadopago";
 
 const client = new MercadoPagoConfig({
     accessToken: process.env.Acess_Token_Mercado_Pago!,
