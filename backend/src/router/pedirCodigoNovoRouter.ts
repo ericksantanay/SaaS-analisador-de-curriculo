@@ -8,7 +8,7 @@ const pedirCodigo = new pedirNovoCodigo();
 
 interface RequestUserId extends Request {
     userId?: string
-}
+};
 
 router.post("/novoCodigo", verificarAutenticacao, (req: RequestUserId, res: Response) => {
     pedirCodigo.codigoNovo(req, res)
