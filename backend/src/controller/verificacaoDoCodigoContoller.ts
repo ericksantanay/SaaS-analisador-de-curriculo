@@ -13,13 +13,13 @@ export class pedirNovoCodigo {
 
       if (!userId) {
         return res.status(401).json({ error: "Usuário não autenticado." });
-      }
+      };
 
       const idUsuario = await novoCodigoDeAcessoService(userId);
 
       return res.status(201).json(idUsuario);
     } catch (error) {
       return res.status(500).json({ error: "Erro no codigo" });
-    }
-  }
-}
+    };
+  };
+};

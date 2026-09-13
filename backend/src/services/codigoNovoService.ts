@@ -15,7 +15,7 @@ export async function novoCodigoDeAcessoService(userId: string) {
         throw new Error("Usuario não existe"); 
     };
 
-    if (usuario.codigoVerificacao === null && usuario.tentativasDoCodigo === 4) {
+    if (usuario.codigoDeVerificacao === null && usuario.tentativasDoCodigo === 4) {
 
         const atualizandoOCodigoDeAcesso = await prisma.usuarios.update({
             where: {
