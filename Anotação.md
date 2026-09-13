@@ -6,4 +6,3 @@
 
 #3
 # Eu tambem preciso verificar o codigo novo, ou qualquer coisa eu reaproveito o a verificação de codigo que eu ja tenho        
-

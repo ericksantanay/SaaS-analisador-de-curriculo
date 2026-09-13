@@ -1,1 +1,31 @@
+import prisma from "../lib/prisma";
 
+export async function novoCodigoDeAcessoService(userId: string) {
+    
+    const codigoGerado = Math.floor(1000000 + Math.random() * 10000000).toString(); 
+
+    const usuario = await prisma.usuarios.findUnique({
+        where: {
+            id: userId
+        }
+    });
+
+    if (!usuario) {
+        throw new Error("Usuario não existe"); 
+    };
+
+    if (usuario.codigoVerificacao === null && usuario.tentativasDoCodigo === 4) {
+
+        const atualizandoOCodigoDeAcesso = await prisma.usuarios.update({
+            where: {
+                id: usuario.id
+            },
+            data:{
+                codigoVerificacao:codigoGerado
+            }
+        });
+
+        return  atualizandoOCodigoDeAcesso;
+    };
+     
+};

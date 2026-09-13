@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../lib/prisma";
+import {novoCodigoDeAcessoService} from "../services/codigoNovoService";
 
 interface RequestUserId extends Request {
   userId?: string;
@@ -15,7 +15,7 @@ export class pedirNovoCodigo {
             return res.status(401).json({ error: "Usuário não autenticado." });
         };
 
-        
+        const idUsuario = await novoCodigoDeAcessoService(userId)
     };
 
 };

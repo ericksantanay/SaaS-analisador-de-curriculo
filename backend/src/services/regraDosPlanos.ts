@@ -14,6 +14,10 @@ export async function planoProService(idUser: string) {
        throw new Error("Usuario não existe");
     };
 
+    if (user.plano === "pro") {
+        return;
+    };
+
     // Atualizando o Plano
     const atualizandoPlanoPro = await prisma.usuarios.update({
         where: {
@@ -25,12 +29,7 @@ export async function planoProService(idUser: string) {
         }
     });
 
-    if (atualizandoPlanoPro.plano === "pro") {
-        return;
-    };
-
     return atualizandoPlanoPro;
-
 };
 
 
@@ -49,6 +48,9 @@ export async function planoFullService(idUser: string) {
         throw new Error("Usuario não existe");
     };
 
+    if (user.plano === "full") {
+        return;
+    };
     
     // Atualizando o Plano para o Full
     const atualizandoPlanoFull = await prisma.usuarios.update({
@@ -63,5 +65,4 @@ export async function planoFullService(idUser: string) {
     });
 
     return atualizandoPlanoFull;
-
 };
