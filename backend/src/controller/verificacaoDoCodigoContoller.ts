@@ -8,14 +8,23 @@ interface RequestUserId extends Request {
 export class pedirNovoCodigo {
 
     async codigoNovo(req: RequestUserId, res: Response) {
-        // Pegando o ID
-        const userId = req.userId;
 
-        if (!userId) {
-            return res.status(401).json({ error: "Usuário não autenticado." });
-        };
+        try {
+             // Pegando o ID
+            const userId = req.userId;
 
-        const idUsuario = await novoCodigoDeAcessoService(userId)
+            if (!userId) {
+                return res.status(401).json({ error: "Usuário não autenticado." });
+            };
+
+            const idUsuario = await novoCodigoDeAcessoService(userId)
+
+            return res.status(201).json(idUsuario);
+        } catch (error) {
+            return res.status(500).json({ error: "Erro no codigo" });
+        }
+
+       
     };
 
 };

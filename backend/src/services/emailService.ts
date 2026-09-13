@@ -14,10 +14,10 @@ export async function emailServico(email: string, codigoGerado: string) {
 
     // Verify do transporter
     try {
-            await transporter.verify();
-        } catch (error) {
-            console.log("Erro:" + error);
-        };
+        await transporter.verify();
+    } catch (error) {
+        console.log("Erro:" + error);
+    };
 
         // Enviar os emails
         try {
@@ -26,12 +26,13 @@ export async function emailServico(email: string, codigoGerado: string) {
             from: `noroleplay<${process.env.SMTP_USER}>`, // Quem esta enviando 
             to: `${email}`,
             subject: `Codigo de verificação`,
-            html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar o seu Email:> ${codigoGerado}</p>`,
+            html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar o seu Email: ${codigoGerado}</p>`,
             text: `Esse é o seu codigo para verificar o seu Email:${codigoGerado}`
         })
         .then(() => console.log("Email enviado com sucesso!")); 
 
         } catch (error) {
             console.log("Erro" + error);
+            return
         };
 };
