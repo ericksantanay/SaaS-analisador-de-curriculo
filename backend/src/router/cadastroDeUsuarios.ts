@@ -39,7 +39,7 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
                     nome: nome,
                     email: email,
                     senha: senhaCriptografada,
-                    codigoVerificacao: codigoGerado,
+                    codigoDeVerificacao: codigoGerado,
                     role: "cliente",
                     plano: "gratis"
                 }
@@ -53,7 +53,8 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
         };
         
     } catch (error) {
-        return res.status(500).json({mensagem: "Erro no servidor"});
+        console.log(error)
+        return res.status(500).json({mensagem: "Erro no servidor" + error});
     };
 
 });

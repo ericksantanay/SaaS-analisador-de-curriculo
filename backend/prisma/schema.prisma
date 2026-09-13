@@ -13,7 +13,8 @@ model usuarios {
     email               String  @unique
     senha               String
     emailVerificado     Boolean @default(false)
-    codigoVerificacao   String?
+    codigoVerificado    Boolean @default(false)
+    codigoDeVerificacao String?
     tentativasDoCodigo  Int @default(0)
     role                String
     analises            Int @default(3)

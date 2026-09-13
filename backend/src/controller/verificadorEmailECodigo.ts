@@ -32,7 +32,7 @@ router.post("/verificarCodigo", async (req: Request, res: Response) => {
             return res.status(403).json({mensagem: "Tentativas falhas, gere um codigo novo"});
         };
 
-        if (usuario.codigoVerificacao === codigoVerificacao) {
+        if (usuario.codigoVerificacao === codigoVerificacao && usuario.email === email) {
 
             await prisma.usuarios.update({
 
@@ -46,6 +46,11 @@ router.post("/verificarCodigo", async (req: Request, res: Response) => {
                 }
 
             });
+
+
+            // if (usuario.emailVerificado  == true) {
+
+            // }
 
             return res.status(200).json({mensagem: "Email e codigo verificado com sucesso."});
 
