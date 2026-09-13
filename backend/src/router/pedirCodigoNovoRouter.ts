@@ -10,9 +10,8 @@ interface RequestUserId extends Request {
     userId?: string
 };
 
-router.post("/novoCodigo", verificarAutenticacao, (req: RequestUserId, res: Response) => {
+router.post("/novoCodigo", (req: RequestUserId, res: Response) => {
     pedirCodigo.codigoNovo(req, res)
 });
-
 
 export default router;

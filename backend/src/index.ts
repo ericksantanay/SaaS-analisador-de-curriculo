@@ -14,6 +14,7 @@ import loginDeUsuarios from "./router/login";
 import planoPro from "./router/planoPro";
 import planoFull from "./router/planoFull"
 import webhook from "./router/webhook.routes";
+import pedirCodigoNovo from "./router/pedirCodigoNovoRouter";
 
 
 // Dotoenv
@@ -40,7 +41,7 @@ app.use(loginDeUsuarios);
 app.use(planoPro);
 app.use(planoFull);
 app.use(webhook);
-
+app.use(pedirCodigoNovo);
 
 
 const porta: number = 3000
