@@ -6,7 +6,7 @@ export class pedirNovoCodigo {
 
   async codigoNovo(req: Request, res: Response) {
 
-    console.log("########### CHEGOU NO CONTROLLER ############")
+    // ########### CHEGOU NO CONTROLLER ############
 
     const {email} = req.body;
     

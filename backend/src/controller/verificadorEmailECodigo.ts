@@ -80,7 +80,7 @@ router.post("/verificarCodigo", async (req: Request, res: Response) => {
 
             // Criando os cookies
             res.cookie("acessToken", token, cookieConfigAcessToken);
-
+                                                                                                        
             res.cookie("refreshToken", refresh, cookieConfigRefreshToken);
 
             return res.status(200).json({mensagem: "Email e codigo verificado com sucesso."});
