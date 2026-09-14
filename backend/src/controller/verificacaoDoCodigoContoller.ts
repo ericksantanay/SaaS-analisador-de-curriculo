@@ -30,8 +30,9 @@ export class pedirNovoCodigo {
       await novoCodigoDeAcessoService(emailDoUsuario);
 
       return res.status(201).json({mensagem: "Novo codigo enviado com sucesso"});
+      
     } catch (error) {
-      console.log(error);
+
       return res.status(500).json({ error: "Erro ao gerar codigo" });
     };
   };
