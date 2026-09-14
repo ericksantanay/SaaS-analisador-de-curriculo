@@ -26,7 +26,7 @@ export async function emailServico(emailUser: string, codigoGerado: string) {
         from: `noroleplay<${process.env.SMTP_USER}>`, // Quem esta enviando 
         to: `${emailUser}`,
         subject: `Codigo de verificação`,
-        html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar o seu Email: ${codigoGerado}</p>`,
+        html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar do seu email: ${codigoGerado}</p>`,
         text: `Esse é o seu codigo para verificar o seu Email:${codigoGerado}`
     })
     .then(() => console.log("Codigo enviado com sucesso!")); 

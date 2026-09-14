@@ -6,10 +6,12 @@ export class pedirNovoCodigo {
 
   async codigoNovo(req: Request, res: Response) {
 
+    console.log("########### CHEGOU NO CONTROLLER ############")
+
     const {email} = req.body;
-    console.log("Email:", email)
+    
     if (!email) {
-      res.status(400).json({mensagem: "Email e senha não recebidos."});
+      return res.status(400).json({mensagem: "Email e senha não recebidos."});
     };
 
     try {
@@ -19,7 +21,6 @@ export class pedirNovoCodigo {
           }
       });
 
-      console.log("Usuario:", user)
       if (!user) {
         return res.status(404).json({mensagem: "Usuario não existe."});
       };
@@ -27,7 +28,6 @@ export class pedirNovoCodigo {
       const emailDoUsuario = user.email
     
       await novoCodigoDeAcessoService(emailDoUsuario);
-      console.log("Função", novoCodigoDeAcessoService)
 
       return res.status(201).json({mensagem: "Novo codigo enviado com sucesso"});
     } catch (error) {
