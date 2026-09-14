@@ -1,23 +1,33 @@
 import { Request, Response } from "express";
 import { novoCodigoDeAcessoService } from "../services/codigoNovoService";
-
-interface RequestUserId extends Request {
-  userId?: string;
-}
+import prisma from "../lib/prisma";
 
 export class pedirNovoCodigo {
-  async codigoNovo(req: RequestUserId, res: Response) {
+
+  async codigoNovo(req: Request, res: Response) {
+
+    const {email, codigoDeVerificacao} = req.body;
+
+    if (!email || !codigoDeVerificacao) {
+      res.status(400).json({mensagem: "Email e senha não recebidos."});
+    };
+
     try {
-      // Pegando o ID
-      const userId = req.userId;
 
-      if (!userId) {
-        return res.status(401).json({ error: "Usuário não autenticado." });
+      const user = await prisma.usuarios.findUnique({
+          where: {
+            email: email, 
+            codigoDeVerificacao: codigoDeVerificacao
+          }
+      });
+
+      if (!user) {
+        return res.status(404).json({mensagem: "Usuario nãoe existe."});
       };
+    
+      const emailUsuario = await novoCodigoDeAcessoService(user.email);
 
-      const idUsuario = await novoCodigoDeAcessoService(userId);
-
-      return res.status(201).json(idUsuario);
+      return res.status(201).json(emailUsuario);
     } catch (error) {
       return res.status(500).json({ error: "Erro no codigo" });
     };
