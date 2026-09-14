@@ -6,30 +6,33 @@ export class pedirNovoCodigo {
 
   async codigoNovo(req: Request, res: Response) {
 
-    const {email, codigoDeVerificacao} = req.body;
-
-    if (!email || !codigoDeVerificacao) {
+    const {email} = req.body;
+    console.log("Email:", email)
+    if (!email) {
       res.status(400).json({mensagem: "Email e senha não recebidos."});
     };
 
     try {
-
       const user = await prisma.usuarios.findUnique({
           where: {
-            email: email, 
-            codigoDeVerificacao: codigoDeVerificacao
+            email: email
           }
       });
 
+      console.log("Usuario:", user)
       if (!user) {
-        return res.status(404).json({mensagem: "Usuario nãoe existe."});
+        return res.status(404).json({mensagem: "Usuario não existe."});
       };
-    
-      const emailUsuario = await novoCodigoDeAcessoService(user.email);
 
-      return res.status(201).json(emailUsuario);
+      const emailDoUsuario = user.email
+    
+      await novoCodigoDeAcessoService(emailDoUsuario);
+      console.log("Função", novoCodigoDeAcessoService)
+
+      return res.status(201).json({mensagem: "Novo codigo enviado com sucesso"});
     } catch (error) {
-      return res.status(500).json({ error: "Erro no codigo" });
+      console.log(error);
+      return res.status(500).json({ error: "Erro ao gerar codigo" });
     };
   };
 };

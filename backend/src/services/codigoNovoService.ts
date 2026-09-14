@@ -1,13 +1,13 @@
 import prisma from "../lib/prisma";
 import {emailServico} from "../services/emailService";
 
-export async function novoCodigoDeAcessoService(email: string) {
+export async function novoCodigoDeAcessoService(emailDoUsuario: string) {
     
     const codigoGerado = Math.floor(1000000 + Math.random() * 10000000).toString(); 
 
-    const usuario = await prisma.usuarios.findUnique({
+    const usuario = await prisma.usuarios.findFirst({
         where: {
-            id: email
+            email: emailDoUsuario
         }
     });
 
@@ -26,7 +26,9 @@ export async function novoCodigoDeAcessoService(email: string) {
             }
         });
 
-        emailServico(usuario.email, codigoGerado);
+        const emailUser: string = usuario.email
+
+        emailServico(emailUser, codigoGerado);
 
         return  atualizandoOCodigoDeAcesso;
     };
