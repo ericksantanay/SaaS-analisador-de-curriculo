@@ -9,7 +9,7 @@ import cadastroDeUsuarios from "./router/cadastroDeUsuarios";
 import verificadorDeEmails from "./controller/verificadorEmailECodigo";
 import controllerEmail from "./controller/verificadorEmailECodigo";
 import refreshToken from "./router/refreshToken";
-import analiseCurriculo from "./router/analisarCurriculo";
+import analiseCurriculo from "./router/analisarCurriculoRouter";
 import loginDeUsuarios from "./router/login";
 import planoPro from "./router/planoPro";
 import planoFull from "./router/planoFull"
