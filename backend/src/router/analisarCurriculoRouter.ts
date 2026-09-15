@@ -2,6 +2,7 @@ import Router from "express";
 import multer from "multer";
 import {verificarAutenticacao} from "../middleware/authMiddleware";
 import {analisarCurriculosController} from "../controller/analisarCurriculoController";
+import {verificadorDeQuantidadeDeAnalises} from "../middleware/middlewareVerificarQuantidadesAnalises";
 
 const router = Router();
 
@@ -32,7 +33,8 @@ router.post(
     "/analisarCurriculo",
     verificarAutenticacao,
     upload.single("pdfCurriculo"),
-    analisarCurriculosController
+    analisarCurriculosController,
+    verificadorDeQuantidadeDeAnalises
 );
 
 export default router;

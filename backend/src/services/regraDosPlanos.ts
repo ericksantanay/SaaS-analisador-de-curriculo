@@ -59,7 +59,7 @@ export async function planoFullService(idUser: string) {
         },
         data: {
             plano: "full",
-            analises: 500,
+            analises: 50,
             historico: true
         }
     });

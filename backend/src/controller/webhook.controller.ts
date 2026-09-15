@@ -43,20 +43,14 @@ export async function webhookController(req: Request, res: Response) {
         
         //  Liberando o plano pro
         if (plano === "plano_pro") {
-
             await planoProService(idUser);
-            return res.status(200).json({
-                    mensagem: "Pagamento aprovado. Plano Pro liberado."
-            });
+            return res.status(200).json({mensagem: "Pagamento aprovado. Plano Pro liberado."});
         };
 
         // Libernado o plano full
         if (plano === "plano_full") {
-
             await planoFullService(idUser);
-            return res.status(200).json({
-                mensagem: "Pagamento aprovado. Plano Full liberado."
-            });
+            return res.status(200).json({mensagem: "Pagamento aprovado. Plano Full liberado."});
         };
 
         return res.status(400).json({
