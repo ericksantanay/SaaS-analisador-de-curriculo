@@ -25,9 +25,18 @@ model usuarios {
 }
 
 model promptsCurriculos {
-    id                String  @id @default(auto()) @map("_id") @db.ObjectId
+    id                String   @id @default(auto()) @map("_id") @db.ObjectId
+
     prompt            String
-    pdfCurriculo      String    
+    pdfCurriculo      String
+
+    notaGeral         Float
+    statusAts         String
+    pontosFortes      String[]
+    pontosFracos      String[]
+    palavrasFaltantes String[]
+
+    criadoEm DateTime @default(now())
 
     userId            String   @db.ObjectId
     usuario           usuarios @relation(fields: [userId], references: [id])

@@ -1,16 +1,26 @@
 import fs from "fs";
+import prisma from "../lib/prisma";
 
-export async function analisarCurriculosService(userId: string, prompt: string, arquivo: any) {
+export async function analisarCurriculosService(userId: string, prompt: string, arquivo: Express.Multer.File) {
     
         const { GoogleGenAI } = await import("@google/genai");
 
-        const pdfInteiro = arquivo.file;
-        const nomePdf = arquivo.file.filename;
+        const usuario = await prisma.usuarios.findUnique({
+            where:{
+                id: userId
+            }
+        })
+
+        if (!usuario) {
+            throw new Error("Usuario não existe");
+        };
+
+        const nomePdf = arquivo.filename;
 
         // ########
-         const pdfBuffer = fs.readFileSync(pdfInteiro.path);
-
-          const pdfEmBase64 = pdfBuffer.toString("base64");
+        const pdfBuffer = fs.readFileSync(arquivo.path);
+        
+        const pdfEmBase64 = pdfBuffer.toString("base64");
 
            const ia = new GoogleGenAI({apiKey: process.env.API_KEY});
 
@@ -90,8 +100,28 @@ export async function analisarCurriculosService(userId: string, prompt: string, 
                 throw new Error("A IA não retornou uma resposta")
             };
 
-             // Salvar no banco de dados com o prisma.
+            const resultado = JSON.parse(response.text);
 
-            return response.text;
-    
+             // Salvar no banco de dados com o prisma.
+             if (usuario.plano === "full") {
+
+                await prisma.promptsCurriculos.create({
+                    data: {
+                        prompt: prompt,
+                        pdfCurriculo: arquivo.filename,
+
+                        notaGeral: resultado.nota_geral,
+                        statusAts: resultado.status_ats,
+                        pontosFortes: resultado.pontos_fortes,
+                        pontosFracos: resultado.pontos_fracos,
+                        palavrasFaltantes: resultado.palavras_faltantes,
+
+                        userId: usuario.id
+                    }
+                });
+
+                
+             }; 
+
+             return resultado;
 };

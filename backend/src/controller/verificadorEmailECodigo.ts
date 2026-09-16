@@ -60,15 +60,15 @@ router.post("/verificarCodigo", async (req: Request, res: Response) => {
 
             const cookieConfigAcessToken: CookieOptions = {
                 httpOnly: true,
-                secure: true,
-                sameSite: "none",
+                secure: false, // Depois por true quando for para produção
+                sameSite: "strict",
                 maxAge: 10 * 60 * 1000
             };
 
             const cookieConfigRefreshToken: CookieOptions = {
                 httpOnly: true,
-                secure: true,
-                sameSite: "none",
+                secure: false, // Depois por true quando for para produção
+                sameSite: "strict",
                 maxAge: 7 * 24 * 60 * 60 * 1000
             };
 
