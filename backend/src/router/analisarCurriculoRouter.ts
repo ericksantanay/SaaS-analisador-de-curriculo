@@ -29,12 +29,6 @@ const upload = multer({
     }
 });
 
-router.post(
-    "/analisarCurriculo",
-    verificarAutenticacao,
-    upload.single("pdfCurriculo"),
-    analisarCurriculosController,
-    verificadorDeQuantidadeDeAnalises
-);
+router.post("/analisarCurriculo", verificarAutenticacao, verificadorDeQuantidadeDeAnalises, upload.single("pdfCurriculo"), analisarCurriculosController);
 
 export default router;

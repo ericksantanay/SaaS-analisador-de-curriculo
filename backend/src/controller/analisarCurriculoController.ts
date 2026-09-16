@@ -33,7 +33,6 @@ export async function analisarCurriculosController(req: RequestUserId, res: Resp
         return res.status(200).json(dadosDasAnalises);
 
     } catch (error) {
-        console.log("Erro ao analisar o curriculo (Backend)",error);
         return res.status(500).json({ error: "Erro ao analisar o curriculo" });
     };
 };

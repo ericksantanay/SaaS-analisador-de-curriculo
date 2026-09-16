@@ -28,15 +28,15 @@ export async function verificadorDeQuantidadeDeAnalises(req: Request, res: Respo
             return res.status(404).json({mensagem: "Usuario não encontrado"});
         };
 
-        if (usuario.plano === "gratis" && usuario.analises >= 3) {
+        if (usuario.plano === "gratis" && usuario.analises <= 0) {
             return res.status(403).json({mensagem: "Suas analises acabaram, atualize o plano para mais analises"});
         };
 
-        if (usuario.plano === "pro" && usuario.analises >= 20) {
+        if (usuario.plano === "pro" && usuario.analises <= 0) {
             return res.status(403).json({mensagem: "Suas analises acabaram, atualize o plano para mais analises"});
         };
 
-        if (usuario.plano === "full" && usuario.analises >= 50) {
+        if (usuario.plano === "full" && usuario.analises <= 0) {
             return res.status(403).json({mensagem: "Suas analises acabaram"});
         };
 

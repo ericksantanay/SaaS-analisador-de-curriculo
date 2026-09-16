@@ -96,6 +96,15 @@ export async function analisarCurriculosService(userId: string, prompt: string, 
 
             });
 
+            await prisma.usuarios.update({
+                where: {
+                    id: usuario.id
+                },
+                data: {
+                    analises: usuario.analises -1
+                }
+            });
+
             if (!response.text) {
                 throw new Error("A IA não retornou uma resposta")
             };
