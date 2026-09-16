@@ -119,8 +119,7 @@ export async function analisarCurriculosService(userId: string, prompt: string, 
                         userId: usuario.id
                     }
                 });
-
-                
+ 
              }; 
 
              return resultado;
