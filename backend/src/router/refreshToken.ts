@@ -1,7 +1,6 @@
 import Router, {CookieOptions}  from "express";
 import jwt from "jsonwebtoken";
 import { Request, Response } from "express";
-// refazer o refresh token
 
 const router = Router();
 
@@ -28,8 +27,8 @@ router.post("/refreshToken", (req: Request, res: Response) => {
         // Configuração do cookies
         const configCookie: CookieOptions = {
             httpOnly: true,
-            secure: false,
-            sameSite: 'strict',
+            secure: true,
+            sameSite: 'none',
             maxAge: 10 * 60 * 1000
         };
 

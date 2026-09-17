@@ -3,7 +3,7 @@ import {emailServico} from "../services/emailService";
 
 export async function novoCodigoDeAcessoService(emailDoUsuario: string) {
     
-    //########### CHEGOU NO SERVICE ############
+    //########### SERVICE ############
 
     const codigoGerado = Math.floor(1000000 + Math.random() * 10000000).toString(); 
 
