@@ -44,8 +44,8 @@ app.use(webhook);
 app.use(pedirCodigoNovo);
 
 
-const porta = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.listen(porta, () => {
-    console.log(`Servidor rodando na porta ${porta}`);
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
