@@ -21,10 +21,7 @@ export async function webhookController(req: Request, res: Response) {
 
         const pagamento = await buscarPagamento(String(paymentId));
 
-        // console.log("PAGAMENTO ENCONTRADO:");
         const idUser = pagamento.external_reference;
-
-        // console.log("External Reference:", pagamento.external_reference);
 
         if (!idUser) {
             return res.status(404).json({mensagem: "Usuario não encontrado"});
