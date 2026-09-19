@@ -1,0 +1,16 @@
+
+
+/* CSS, DO NAVBAR */
+#container-nav-bar {
+    background-color: var(--cinza);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* position: fixed;
+    position: static; */
+}
+
+/* Logo */
+#lado-esquerdo-nav-bar > img {
+    width: 100px;
+}
