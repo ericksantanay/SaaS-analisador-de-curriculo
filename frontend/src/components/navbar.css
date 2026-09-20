@@ -1,16 +1,73 @@
-
-
 /* CSS, DO NAVBAR */
 #container-nav-bar {
+    width: 1200px;
     background-color: var(--cinza);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* position: fixed;
-    position: static; */
+    position: fixed;
+    position: sticky;
+    padding-right: 20px;
+    padding-left: 10px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px #ffffff2e;
 }
 
-/* Logo */
-#lado-esquerdo-nav-bar > img {
-    width: 100px;
+/* Lista dos links */
+#container-links-nav-bar > ul {
+    display: flex;
+    gap: 20px;
+}
+
+/* Links  */
+#container-links-nav-bar > ul > li {
+    list-style:  none;
+}
+
+#container-links-nav-bar > ul > li > a {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(210, 209, 209);
+    text-decoration: none;
+    transition: .3s ease-in-out;
+}
+
+#container-links-nav-bar > ul > li > a:hover {
+    color: var(--branco);
+}
+
+/* Parte do login e cadastro de conta */
+#container-login-e-criar-conta {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+/* parte do login */
+#link-para-login {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(210, 209, 209);
+    text-decoration: none;
+}
+
+/* Hover */
+/* parte do login */
+#link-para-login:hover {
+    color:  var(--branco);
+}
+
+/* Parte do botão para criar conta */
+#btn-criar-conta {
+    font-weight: 500;
+    background-color: var(--branco);
+    padding: 9px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--preto);
+    transition: .3s ease-in-out;
+}
+
+#btn-criar-conta:hover {
+    background-color: #ffffff9f;
 }

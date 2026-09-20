@@ -1,11 +1,8 @@
-#container-video {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* Ocupa 100% da altura da tela visível */
-  overflow: hidden;
+header {
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 15px;
+  width: 100%;
 }
 
 /* Configurações para o vídeo cobrir todo o fundo */

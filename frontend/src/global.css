@@ -4,22 +4,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Geral */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--inter);
 }
 
 :root {
     /* cores */
     --branco: #fff;/*O BRANCO TAMBEM SERA USADO NO HEADER COMO SOMBRA*/
-    --cinza: #555555;
+    --cinza: #55555527;
     --preto: #000000;
 
     /* fontes */
     --inter: "Inter", sans-serif;
     --poppins: "Poppins", sans-serif;
     --plus-jakarta:"Plus Jakarta Sans", sans-serif;
-
+    --roboto: "Roboto", sans-serif;
 }
