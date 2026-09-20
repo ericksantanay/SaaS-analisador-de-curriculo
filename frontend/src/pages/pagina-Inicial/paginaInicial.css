@@ -1,5 +1,5 @@
 #container-conteudo-primeira-secao {
-    position: fixed;
+    position: absolute;
     top: 25%;
     left: 64px;
     z-index: 1; /* Garante que o texto fique na frente */
@@ -18,4 +18,9 @@
 #container-conteudo-primeira-secao > p {
     font-size: 21px;
     font-family: var(--roboto);
+}
+
+/* Segunda seção */
+#segunda-secao-secao-analisador-curriculo {
+    margin-top: 50%;
 }

@@ -26,3 +26,7 @@
     --plus-jakarta:"Plus Jakarta Sans", sans-serif;
     --roboto: "Roboto", sans-serif;
 }
+
+body {
+    background-color: #000000;
+}
