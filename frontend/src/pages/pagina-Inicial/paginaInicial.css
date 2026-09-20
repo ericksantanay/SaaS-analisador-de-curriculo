@@ -22,5 +22,64 @@
 
 /* Segunda seção */
 #segunda-secao-secao-analisador-curriculo {
+    display: flex;
+    justify-content: center;
     margin-top: 50%;
+    margin-bottom: 20%;
+    padding: 10px;
 }
+
+#container-upload-do-cv {
+    position: absolute;
+    top: 840px;
+    right: 925px;
+    padding: 5px;
+    box-shadow: 1px 1px 10px #00000035;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Input upload */
+#upload-cv {
+    display: none;
+}
+
+#icone-upload {
+    cursor: pointer;
+}
+
+/* Input do prompt */
+#prompt-analise-curriculo {
+    min-width: 630px;
+    padding-top: 12px;
+    padding-left: 12px;
+    padding-bottom: 110px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+}
+
+#container-btn-enviar-curriculo {
+    position: absolute;
+    top: 845px;
+    right: 28%;
+    cursor: pointer;
+}
+
+/* Botão enviar curriculo para a IA analisar */
+#btn-enviar-curriculo {
+    background-color: var(--preto);
+    color: var(--branco);
+    border: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+/* Quando o usuario nao tiver analises */
+/* .cursorBloqueado {
+    cursor: not-allowed;
+} */
