@@ -79,6 +79,103 @@
     border-radius: 20px;
 }
 
+#titulo-terceira-secao {
+    font-family: var(--plus-jakarta);
+    font-size: 70px;
+    text-align: center;
+    color: var(--branco);
+    margin-bottom: 90px;
+}
+
+#container-demostracao-do-conteudo {
+    display: flex;
+    justify-content: center;
+}
+
+.demonstracao-conteudo {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    gap: 20px;
+    border-radius: 15px;
+    background-color: var(--branco);
+    padding: 20px;
+}
+
+.primeira-parte {
+    display: flex;
+    gap: 23px;
+}
+
+.container-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--preto);
+    border-radius: 50%;
+    padding: 14px;
+}
+
+.titulo-demonstracao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.segunda-parte {
+    margin-top: 20px;
+    margin-left: 65px;
+}
+
+.segunda-parte > p {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Barra de progresso */ 
+progress {
+  /* Reseta a aparência padrão do navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 52%;
+  height: 12px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--branco); /* Cinza claro */
+  border-radius: 10px;
+  border: 1px solid var(--preto);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--preto);
+  border-radius: 4px;
+}
+
+.titulo-demonstracao > h3 {
+    font-weight: bold;
+}
+
+.titulo-demonstracao > p {
+    font-family: var(--poppins);
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Quando o usuario nao tiver analises */
 /* .cursorBloqueado {
     cursor: not-allowed;
