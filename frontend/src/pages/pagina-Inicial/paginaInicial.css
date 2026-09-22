@@ -166,7 +166,9 @@ progress::-webkit-progress-value {
     font-size: 18px;
 }
 
-
+.container-vantagens-de-cada-plano > p > svg {
+    color: var(--branco);
+}
 
 
 
