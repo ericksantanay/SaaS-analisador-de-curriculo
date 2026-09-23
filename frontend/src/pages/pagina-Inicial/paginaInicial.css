@@ -261,6 +261,7 @@ progress::-webkit-progress-value {
 /* Seção das Faqs */
 #quinta-secao-faq {
     margin-top: 15%;
+    margin-bottom: 10%;
 }
 
 #container-faq {
@@ -293,8 +294,74 @@ progress::-webkit-progress-value {
 }
 
 #container-titulo-faq > p {
-    font-size: 35px;
+    font-size: 25px;
+    font-weight: 400;
 }
+
+#container-das-faq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8%;
+    gap: 30px;
+}
+
+.faqs {
+    width: 95%;
+    background-color: #171717;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #8F8F8F;
+    /* margin-bottom: ; */
+}
+
+.container-numero-da-faq-e-titulo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.numero-da-feq {
+    padding: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 46px;
+}
+
+.numero-da-feq > h1 {
+    color: #919191;
+}
+
+.pergunta-da-faq {
+    color: var(--branco);
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.container-mostrar-resposta {
+    position: relative;
+    margin-bottom: 2%;
+}
+
+.container-mostrar-resposta > span {
+    position: absolute;
+    left: 94%;
+    bottom: 25px;
+    color:  var(--branco);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#resposta-feq-1, #resposta-feq-2, #resposta-feq-3, #resposta-feq-4, #resposta-feq-5 {
+    display: none;
+}
+
+.container-resposta-da-faq > p {
+    color:  var(--branco);
+    font-size: 18px;
+}
+
+
 
 /* Quando o usuario nao tiver analises */
 /* .cursorBloqueado {
