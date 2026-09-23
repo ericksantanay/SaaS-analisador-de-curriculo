@@ -1,265 +1,483 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aulto</title>
-    <link rel="stylesheet" href="src/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon" />
-</head>
-<body>
-
+    <link rel="stylesheet" href="src/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon"
+    />
+  </head>
+  <body>
     <!-- Parte do topo -->
     <header>
+      <!-- Video -->
+      <video autoplay muted loop id="video-fundo">
+        <source src="src/assets/video/video para o site.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeos.
+      </video>
 
-         <!-- Video -->
-        <video autoplay muted loop id="video-fundo">
-            <source src="src/assets/video/video para o site.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos.
-        </video>
+      <!-- Parte da navegação -->
+      <nav id="container-nav-bar">
+        <!-- Container logo Aulto -->
+        <div id="lado-esquerdo-nav-bar">
+          <img
+            src="src/assets/image/Logo + Logotipo(R)Novo.png"
+            alt="Logotipo AULTO"
+          />
+        </div>
 
-        <!-- Parte da navegação -->
-        <nav id="container-nav-bar">
+        <!-- Lado direito area de navegação -->
+        <div id="container-links-nav-bar">
+          <ul>
+            <li><a href="#">Nova análise</a></li>
+            <li><a href="#">Relatorio</a></li>
+            <li><a href="#">Planos</a></li>
+            <li><a href="#">Historico</a></li>
+          </ul>
+        </div>
 
-            <!-- Container logo Aulto -->
-            <div id="lado-esquerdo-nav-bar">
-                <img src="src/assets/image/Logo + Logotipo(R)Novo.png" alt="Logotipo AULTO">
-            </div>
+        <!-- Container login e criar conta -->
+        <div id="container-login-e-criar-conta">
+          <a id="link-para-login" href="#">Sing in</a>
 
-            <!-- Lado direito area de navegação -->
-            <div id="container-links-nav-bar">
-                <ul>
-                    <li><a href="#">Nova análise</a></li>
-                    <li><a href="#">Relatorio</a></li>
-                    <li><a href="#">Planos</a></li>
-                    <li><a href="#">Historico</a></li>
-                </ul>
-            </div>
-
-            <!-- Container login e criar conta -->
-            <div id="container-login-e-criar-conta">
-                    
-                <a id="link-para-login" href="#">Sing in</a>
-
-                <a id="btn-criar-conta" href="#">Create account </a>
-            </div>
-
-        </nav>
-    
+          <a id="btn-criar-conta" href="#">Create account </a>
+        </div>
+      </nav>
     </header>
 
     <!-- Parte do conteudo -->
     <main>
+      <section id="primeira-secao-informacoes-iniciais">
+        <article id="container-conteudo-primeira-secao">
+          <h1>
+            Compare seu Currículo <br />
+            com a Vaga em Segundos
+          </h1>
 
-        <section id="primeira-secao-informacoes-iniciais">
-            
-            <article id="container-conteudo-primeira-secao">
-                <h1>Compare seu Currículo <br> com a Vaga em Segundos</h1>
+          <p>
+            Descubra o nível de compatibilidade do seu CV <br />
+            com a vaga desejada, identifique pontos fracos e <br />
+            aumente suas chances de ser chamado para a <br />
+            entrevista.
+          </p>
+        </article>
+      </section>
 
-                <p>Descubra o nível de compatibilidade do seu CV <br> com a vaga desejada, identifique pontos fracos e <br> aumente suas chances de ser chamado para a <br> entrevista.</p>
-            </article>
-        
-        </section>
+      <!-- Segunda seção -->
+      <section id="segunda-secao-secao-analisador-curriculo">
+        <article id="container-form-analisador-de-curricuclo">
+          <form id="formulario-analisador-decurriculo">
+            <div id="container-upload-do-cv">
+              <input type="file" name="upload-cv" id="upload-cv" required />
+              <span class="material-symbols-outlined" id="icone-upload"
+                >attach_file</span
+              >
+            </div>
 
-        <!-- Segunda seção -->
-        <section id="segunda-secao-secao-analisador-curriculo">
-            
-            <article id="container-form-analisador-de-curricuclo">
+            <div id="container-prompt">
+              <input
+                type="text"
+                name="prompt-analise-curriculo"
+                id="prompt-analise-curriculo"
+                placeholder="Ex: Desenvolvedor Backend, Gerente de Loja, Designer Gráfico..."
+                required
+              />
+            </div>
 
-                <form id="formulario-analisador-decurriculo">
+            <div id="container-btn-enviar-curriculo">
+              <button id="btn-enviar-curriculo" type="submit">
+                <span class="material-symbols-outlined" id="icone-fazer-analise"
+                  >arrow_upward_alt</span
+                >
+              </button>
+            </div>
+          </form>
+        </article>
+      </section>
 
-                    <div id="container-upload-do-cv"> 
-                        <input type="file" name="upload-cv" id="upload-cv" required>
-                        <span class="material-symbols-outlined" id="icone-upload">attach_file</span>
+      <!-- Terceira seção. Seção de demonstração do que vamos oferecer -->
+      <section id="terceira-secao-demontracao-">
+        <h1 id="titulo-terceira-secao">
+          Tudo que você precisa <br />
+          antes de se candidatar.
+        </h1>
+
+        <article id="container-demostracao-do-conteudo">
+          <div class="lado-esquerdo-terceira-secao">
+            <!--  -->
+            <div class="demonstracao-conteudo">
+              <div class="primeira-parte">
+                <div class="container-numero">
+                  <h2>01</h2>
+                </div>
+
+                <div class="titulo-demonstracao">
+                  <h3>Nota de Aderência</h3>
+                  <p>
+                    Veja de 0 a 100 o quanto seu currículo está alinhado à vaga.
+                  </p>
+                </div>
+              </div>
+
+              <div class="segunda-parte">
+                <p><strong>Aderência:</strong> 87</p>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+          <div class="lado-direito-terceira-secao">
+            <!--  -->
+            <div class="demonstracao-conteudo">
+              <div class="primeira-parte">
+                <div class="container-numero">
+                  <h2>02</h2>
+                </div>
+
+                <div class="titulo-demonstracao">
+                  <h3>Compatibilidade com ATS</h3>
+                  <p>
+                    Descubra se seu currículo está legível e adequado para
+                    sistemas de recrutamento.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--  -->
+            <div class="demonstracao-conteudo">
+              <div class="primeira-parte">
+                <div class="container-numero">
+                  <h2>03</h2>
+                </div>
+
+                <div class="titulo-demonstracao">
+                  <h3>Pontos Fortes</h3>
+                  <p>
+                    Entenda quais partes do seu currículo estão funcionando bem
+                    para aquela vaga.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--  -->
+            <div class="demonstracao-conteudo">
+              <div class="primeira-parte">
+                <div class="container-numero">
+                  <h2>04</h2>
+                </div>
+
+                <div class="titulo-demonstracao">
+                  <h3>Pontos Fracos</h3>
+                  <p>
+                    Identifique o que está faltando ou pode prejudicar sua
+                    candidatura.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!--  -->
+      <section id="quarta-secao-planos">
+        <h1>Planos</h1>
+
+        <article id="container-planos">
+          <div class="planos">
+            <div class="tipo-de-plano-pro">
+              <p>Pro</p>
+            </div>
+
+            <div class="valor-do-plano">
+              <p><strong>R$9,90 </strong> / mês</p>
+            </div>
+
+            <div class="container-vantagens-de-cada-plano">
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Análises: <strong>20/mes</strong>
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Nota de Aderência
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Pontos fortes
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Pontos Fracos
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Status ATS
+              </p>
+            </div>
+
+            <div class="container-btn">
+              <button id="btn-plano-pro">Assinar plano Pro</button>
+            </div>
+          </div>
+
+          <div class="planos">
+            <div class="tipo-de-plano-full">
+              <p>Full</p>
+            </div>
+
+            <div class="valor-do-plano">
+              <p><strong>R$19,00</strong> / mês</p>
+            </div>
+
+            <div class="container-vantagens-de-cada-plano">
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Análises: <strong>50/mes</strong>
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Nota de Aderência
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Pontos fortes
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Pontos Fracos
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Status ATS
+              </p>
+
+              <!--  -->
+              <p>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Histórico de análises
+              </p>
+
+            </div>
+
+            <div class="container-btn">
+              <button id="btn-plano-full">Assinar plano Full</button>
+            </div>
+
+          </div>
+
+        </article>
+
+      </section>
+
+      <!-- Seção  -->
+    <section id="quinta-secao-faq">
+        <!--  -->
+        <div id="container-faq">
+          <h2>FAQ</h2>
+        </div>
+
+        <div id="container-titulo-faq">
+            <h1>Dùvidas frequentes.</h1>
+            <p>Respostas rápidas para perguntas mais comuns sobre a Aulto</p>
+        </div>
+
+        <!--  -->
+        <article id="container-das-faq">
+          <!--  -->
+            <div class="faqs">
+                <div class="container-numero-da-faq-e-titulo">
+                    <div class="numero-da-feq">
+                        <h1>01</h1>
                     </div>
 
-                    <div id="container-prompt">
-                        <input type="text" name="prompt-analise-curriculo" id="prompt-analise-curriculo" placeholder="Ex: Desenvolvedor Backend, Gerente de Loja, Designer Gráfico..." required>
-                    </div>
+                    <h2 class="pergunta-da-faq">Como a Aulvo analisa meu currículo?</h2>
+                </div>
 
-                    <div id="container-btn-enviar-curriculo">
-                        <button id="btn-enviar-curriculo" type="submit"><span class="material-symbols-outlined" id="icone-fazer-analise">arrow_upward_alt</span></button>
-                    </div>
-
-                </form>
-                
-            </article>
-        
-        </section>
-
-        <!-- Terceira seção. Seção de demonstração do que vamos oferecer -->
-        <section id="terceira-secao-demontracao-">
-
-            <h1 id="titulo-terceira-secao">Tudo que você precisa <br> antes de se candidatar.</h1>
-
-            <article id="container-demostracao-do-conteudo">
-
-                <div class="lado-esquerdo-terceira-secao">
-
-                    <!--  -->
-                    <div class="demonstracao-conteudo">
-
-                        <div class="primeira-parte">
-
-                            <div class="container-numero">
-                                <h2>01</h2>
-                            </div>
-
-                            <div class="titulo-demonstracao">
-                                <h3>Nota de Aderência</h3>
-                                <p>Veja de 0 a 100 o quanto seu currículo está alinhado à vaga.</p>
-                            </div>
-
-                        </div>
-
-                        <div class="segunda-parte">
-                            <p><strong>Aderência:</strong> 87</p>
-                        </div>
-
-                    </div>
-                     
+                <div class="container-mostrar-resposta">
+                    <span class="material-symbols-outlined" onclick="mostrarRespostaDaFaq()">add</span>
                 </div>
 
                 <!--  -->
-                <div class="lado-direito-terceira-secao">
-                    <!--  -->
-                    <div class="demonstracao-conteudo">
-
-                        <div class="primeira-parte">
-
-                            <div class="container-numero">
-                                <h2>02</h2>
-                            </div>
-
-                            <div class="titulo-demonstracao">
-                                <h3>Compatibilidade com ATS</h3>
-                                <p>Descubra se seu currículo está legível e adequado para sistemas de recrutamento.</p>
-                            </div>
-
-                        </div>
-                        
-                    </div>
-
-                    <!--  -->
-                    <div class="demonstracao-conteudo">
-
-                        <div class="primeira-parte">
-
-                            <div class="container-numero">
-                                <h2>03</h2>
-                            </div>
-
-                            <div class="titulo-demonstracao">
-                                <h3>Pontos Fortes</h3>
-                                <p>Entenda quais partes do seu currículo estão funcionando bem para aquela vaga.</p>
-                            </div>
-
-                        </div>
-                        
-                    </div>
-
-                    <!--  -->
-                    <div class="demonstracao-conteudo">
-
-                        <div class="primeira-parte">
-
-                            <div class="container-numero">
-                                <h2>04</h2>
-                            </div>
-
-                            <div class="titulo-demonstracao">
-                                <h3>Pontos Fracos</h3>
-                                <p>Identifique o que está faltando ou pode prejudicar sua candidatura.</p>
-                            </div>
-
-                        </div>
-                        
-                    </div>
-                </div>
-
-            </article>
-
-        </section>
-
-        <!--  -->
-        <section id="quarta-secao-planos">
-
-            <h1>Planos</h1>
-
-            <article id="container-planos">
-                
-                <div class="planos">
-
-                    <div class="tipo-de-plano">
-                        <p>Pro</p>
-                    </div>
-                    
-                    <div class="valor-do-plano">
-                        <p><strong>R$9,90 </strong> / mês</p>
-                    </div>
-
-                    <div class="container-vantagens-de-cada-plano">
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Análises: <strong>20/mes</strong></p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Nota de Aderência</p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Pontos fortes</p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Pontos Fracos</p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Status ATS</p>
-                    </div>
-
-                    <div class="container-btn">
-                        <button id="btn-plano-pro">Assinar plano Pro</button>
-                    </div>
+                <div class="container-resposta-da-faq">
+                    <p>A Aulvo utiliza inteligência artificial para comparar as informações do seu currículo com os requisitos da vaga. A análise identifica pontos de compatibilidade, requisitos que podem estar faltando e oportunidades de melhoria no seu currículo.
+                    </p>
 
                 </div>
 
-                <div class="planos">
+            </div>
 
-                    <div class="tipo-de-plano">
-                        <p>Full</p>
-                    </div>
-                    
-                    <div class="valor-do-plano">
-                        <p><strong>R$19,00</strong> / mês</p>
-                    </div>
+        </article>
 
-                    <div class="container-vantagens-de-cada-plano">
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Análises: <strong>50/mes</strong></p>
+      </section>
 
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Nota de Aderência</p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Pontos fortes</p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Pontos Fracos</p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Status ATS</p>
-
-                        <!--  -->
-                        <p><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg> Histórico de análises</p>
-                    </div>
-
-                    <div class="container-btn">
-                        <button id="btn-plano-full">Assinar plano Full</button>
-                    </div>
-
-                </div>
-
-            </article>
-
-        </section>
+      <!--  -->
 
     </main>
-
-</body>
+    
+  </body>
 </html>

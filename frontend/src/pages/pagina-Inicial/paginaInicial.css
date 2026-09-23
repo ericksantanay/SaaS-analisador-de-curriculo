@@ -166,17 +166,135 @@ progress::-webkit-progress-value {
     font-size: 18px;
 }
 
-.container-vantagens-de-cada-plano > p > svg {
+#quarta-secao-planos {
+    padding: 30px;
+    background-color: var(--branco);
+    margin-top: 20%;
+}
+
+#quarta-secao-planos > h1 {
+    font-family: var(--plus-jakarta);
+    font-size: 60px;
+    text-align: center;
+}
+
+#container-planos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px 400px;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+/* Planos */
+.planos {
+    min-width: 350px;
+    padding: 15px;
+    box-shadow: 1px 1px 10px #00000051;
+    border-radius: 16px;
+}
+
+.tipo-de-plano-pro, .tipo-de-plano-full {
+    font-size: 20px;
+    border-radius: 40px;
+    max-width: max-content;
+    padding: 4px 30px;
+    margin-bottom: 20px;
+}
+
+.tipo-de-plano-pro {
+    background-color: #DEDEDE;
+} 
+
+.tipo-de-plano-full {
+    background-color: var(--preto);
     color: var(--branco);
 }
 
+.valor-do-plano {
+    margin-bottom: 40px;
+}
 
+.valor-do-plano > p {
+    font-size: 24px;
+}
 
+.container-vantagens-de-cada-plano {
+    margin-bottom: 140px;
+}
 
+.container-vantagens-de-cada-plano > p {
+    margin-bottom: 21px;
+    font-size: 19px;
+}
 
+.container-vantagens-de-cada-plano > p > svg {
+    color:#1ADE05;
+    width: 19px;
+    height: 19px;
+}
 
+.container-btn {
+    text-align: center;
+}
 
+#btn-plano-full, #btn-plano-pro {
+    padding: 13px 20px;
+    border-radius: 10px;
+    border: none;
+    color: var(--branco);
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--preto);
+    transition: .3s ease-in-out;
+}
 
+#btn-plano-full:hover {
+    box-shadow: 1px 1px 10px var(--preto);
+}
+
+#btn-plano-pro:hover {
+    box-shadow: 1px 1px 10px var(--preto);
+}
+
+/* Seção das Faqs */
+#quinta-secao-faq {
+    margin-top: 15%;
+}
+
+#container-faq {
+    display: flex;
+    justify-content: center; 
+}
+
+#container-faq > h2 {
+    width: max-content;
+    border: 1px solid var(--branco);
+    font-size: 40px;
+    color: var(--branco);
+    padding: 5px 20px;
+    border-radius: 30px;
+}
+
+#container-titulo-faq { 
+    text-align: center;
+    margin-top: 25px;
+}
+
+#container-titulo-faq > h1, #container-titulo-faq > p {
+    color: var(--branco);
+}
+
+#container-titulo-faq > h1 {
+    font-family: var(--plus-jakarta);
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+#container-titulo-faq > p {
+    font-size: 35px;
+}
 
 /* Quando o usuario nao tiver analises */
 /* .cursorBloqueado {
