@@ -1,0 +1,54 @@
+@media screen and (max-width: 992px){
+    #container-links-nav-bar {
+        display: none;
+    }
+    
+    #menu-burguer {
+        display: block;
+    }
+
+    /* Primeira seção */
+    #container-conteudo-primeira-secao {
+        text-align: center;
+        top: 15%;
+         left: 10px;
+    }
+
+    #container-conteudo-primeira-secao > p {
+        text-shadow: var(--branco);
+        font-size: 18px;
+        font-family: var(--roboto);
+    }
+
+
+    /* Segunda seção */
+    #segunda-secao-secao-analisador-curriculo {
+        margin-top: 170%;
+        margin-bottom: 20%;
+    }
+
+    #prompt-analise-curriculo {
+        text-align: center;
+        min-width: 370px;
+    }
+
+    #prompt-analise-curriculo::placeholder {
+        font-size: 12px;
+    }
+    
+    #container-btn-enviar-curriculo {
+        left: 85%;
+    }
+
+    /* Terceira seção */
+    #titulo-terceira-secao {
+        font-size: 50px;
+        margin-top: 200%;
+    }
+
+    #container-demostracao-do-conteudo {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

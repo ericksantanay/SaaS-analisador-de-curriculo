@@ -1,0 +1,58 @@
+/* Segunda seção */
+#segunda-secao-secao-analisador-curriculo {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-upload-do-cv {
+    position: absolute;
+    /* top: 80px;
+    right: 925px; */
+    padding: 5px;
+    box-shadow: 1px 1px 10px #00000035;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+/* Input upload */
+#upload-cv {
+    display: none;
+}
+
+#icone-upload {
+    cursor: pointer;
+}
+
+/* Input do prompt */
+#prompt-analise-curriculo {
+    min-width: 630px;
+    padding-top: 12px;
+    padding-left: 12px;
+    padding-bottom: 110px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+}
+
+#container-btn-enviar-curriculo {
+    position: absolute;
+    bottom: 46%;
+    right: 28%;
+    cursor: pointer;
+}
+
+/* Botão enviar curriculo para a IA analisar */
+#btn-enviar-curriculo {
+    background-color: var(--preto);
+    color: var(--branco);
+    border: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 5px;
+    border-radius: 20px;
+}

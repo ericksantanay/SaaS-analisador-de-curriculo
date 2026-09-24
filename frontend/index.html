@@ -40,13 +40,31 @@
         </div>
 
         <!-- Container login e criar conta -->
-        <div id="container-login-e-criar-conta">
-          <a id="link-para-login" href="#">Sing in</a>
+        <div class="container-login-e-criar-conta">
 
-          <a id="btn-criar-conta" href="#">Create account </a>
+          <a class="link-para-login" href="#">Sing in</a>
+
+          <a class="btn-criar-conta" href="#">Create account </a>
+
         </div>
+
+        <div class="container-menu-burguer">
+          <span class="material-symbols-outlined" id="menu-burguer" onclick="menuBurguer()">menu</span>
+        </div>
+
+        <div id="container-links-para-versao-mobile">
+          <ul>
+            <li><a href="#">Nova análise</a></li>
+            <li><a href="#">Relatorio</a></li>
+            <li><a href="#">Planos</a></li>
+            <li><a href="#">Historico</a></li>
+          </ul>
+
+        </div>
+
       </nav>
     </header>
+
 
     <!-- Parte do conteudo -->
     <main>
@@ -66,40 +84,10 @@
         </article>
       </section>
 
-      <!-- Segunda seção -->
-      <section id="segunda-secao-secao-analisador-curriculo">
-        <article id="container-form-analisador-de-curricuclo">
-          <form id="formulario-analisador-decurriculo">
-            <div id="container-upload-do-cv">
-              <input type="file" name="upload-cv" id="upload-cv" required />
-              <span class="material-symbols-outlined" id="icone-upload"
-                >attach_file</span
-              >
-            </div>
-
-            <div id="container-prompt">
-              <input
-                type="text"
-                name="prompt-analise-curriculo"
-                id="prompt-analise-curriculo"
-                placeholder="Ex: Desenvolvedor Backend, Gerente de Loja, Designer Gráfico..."
-                required
-              />
-            </div>
-
-            <div id="container-btn-enviar-curriculo">
-              <button id="btn-enviar-curriculo" type="submit">
-                <span class="material-symbols-outlined" id="icone-fazer-analise"
-                  >arrow_upward_alt</span
-                >
-              </button>
-            </div>
-          </form>
-        </article>
-      </section>
 
       <!-- Terceira seção. Seção de demonstração do que vamos oferecer -->
       <section id="terceira-secao-demontracao-">
+
         <h1 id="titulo-terceira-secao">
           Tudo que você precisa <br />
           antes de se candidatar.
@@ -583,6 +571,19 @@
 
     <!--  -->
     <footer>
+
+      <div class="aulvo-footer">
+        
+        <img src="src/assets/image/AULVO LOGO BRANCA.png" alt="Logo AULVO">
+
+        <p>Compara seu cúrriculo com a vaga. <br>
+          Entenda suas chances e melhore sua <br> candidatura em segundos.
+        </p>
+      </div>
+
+      <div class="direitos-autorais">
+        <p>© 2026 Aulvo. Todos os direitos reservados</p>
+      </div>
 
     </footer>
 
