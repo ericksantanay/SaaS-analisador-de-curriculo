@@ -10,44 +10,128 @@
     />
     <link rel="stylesheet" href="../../global.css">
     <link rel="stylesheet" href="analisarCurriculo.css">
+    <link rel="stylesheet" href="../../components/navbar.css">
 </head>
 <body>
 
-    <main>
-            <!-- Segunda seção -->
-        <section id="segunda-secao-secao-analisador-curriculo">
+    <!-- Parte do topo -->
+      <header>
 
-            <article id="container-form-analisador-de-curricuclo">
+        <!-- Parte da navegação -->
+        <nav id="container-nav-bar">
 
-                <form id="formulario-analisador-decurriculo">
+          <!-- Container logo AULTO -->
+          <div id="lado-esquerdo-nav-bar">
+            <img
+              src="../../assets/image/Logo + Logotipo(R)Novo.png"
+              alt="Logotipo AULTO"
+            />
+          </div>
 
-                    <div id="container-upload-do-cv">
+          <!-- Lado direito / área de navegação -->
+          <div id="container-links-nav-bar">
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Nova análise</a></li>
+              <li><a href="#">Relatorio</a></li>
+              <li><a href="#">Planos</a></li>
+              <li><a href="#">Historico</a></li>
+            </ul>
+          </div>
 
-                        <input type="file" name="upload-cv" id="upload-cv" required />
-                        <span class="material-symbols-outlined" id="icone-upload">attach_file</span>
+          <!-- Container login e criar conta -->
+          <div class="container-login-e-criar-conta">
+            <a class="link-para-login" href="#">Sing in</a>
+            <a class="btn-criar-conta" href="#">Create account</a>
+          </div>
 
-                    </div>
+          <!-- Menu hamburguer -->
+          <div class="container-menu-burguer">
+            <span
+              class="material-symbols-outlined"
+              id="menu-burguer"
+              onclick="menuBurguer()"
+            >
+              menu
+            </span>
+          </div>
 
-                    <div id="container-prompt">
-                        <input
-                            type="text"
-                            name="prompt-analise-curriculo"
-                            id="prompt-analise-curriculo"
-                            placeholder="Ex: Desenvolvedor Backend, Gerente de Loja, Designer Gráfico..."
-                            required/>
-                    </div>
+          <!-- Menu da versão mobile -->
+          <div id="container-links-para-versao-mobile">
 
-                    <div id="container-btn-enviar-curriculo">
-                        <button id="btn-enviar-curriculo" type="submit">
-                            <span class="material-symbols-outlined" id="icone-fazer-analise"
-                            >arrow_upward_alt</span
-                            >
-                        </button>
-                    </div>
-                </form>
-            </article>
-        </section>
-    </main>
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Nova análise</a></li>
+              <li><a href="#">Relatorio</a></li>
+              <li><a href="#">Planos</a></li>
+              <li><a href="#">Historico</a></li>
+            </ul>
+
+          </div>
+
+        </nav>
+
+      </header>
+
+      <main>
+
+          <!-- Segunda seção -->
+          <section id="segunda-secao-secao-analisador-curriculo">
+
+              <article id="container-form-analisador-de-curricuclo">
+
+                  <form id="formulario-analisador-decurriculo">
+
+                      <div id="container-upload-do-cv">
+                          <input
+                              type="file"
+                              name="upload-cv"
+                              id="upload-cv"
+                              required
+                          />
+
+                          <span
+                              class="material-symbols-outlined"
+                              id="icone-upload"
+                          >
+                              attach_file
+                          </span>
+                      </div>
+
+                      <div id="container-prompt">
+                          <input
+                              type="text"
+                              name="prompt-analise-curriculo"
+                              id="prompt-analise-curriculo"
+                              placeholder="Ex: Desenvolvedor Backend, Gerente de Loja, Designer Gráfico..."
+                              required
+                          />
+                      </div>
+
+                      <div id="container-btn-enviar-curriculo">
+
+                          <button
+                              id="btn-enviar-curriculo"
+                              type="submit"
+                          >
+                              <span
+                                  class="material-symbols-outlined"
+                                  id="icone-fazer-analise"
+                              >
+                                  arrow_upward_alt
+                              </span>
+                          </button>
+
+                      </div>
+
+                  </form>
+
+              </article>
+
+          </section>
+
+      </main>
+
     
 </body>
 </html>

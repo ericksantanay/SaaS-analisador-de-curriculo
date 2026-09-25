@@ -1,58 +1,274 @@
-/* Segunda seção */
+/* =========================================================
+   SEGUNDA SEÇÃO
+========================================================= */
+
 #segunda-secao-secao-analisador-curriculo {
-    height: 90vh;
+    width: 100%;
+    height: 86vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    box-sizing: border-box;
 }
+
+
+/* =========================================================
+   CONTAINER DO FORMULÁRIO
+========================================================= */
+
+#container-form-analisador-de-curricuclo {
+    width: 630px;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+#formulario-analisador-decurriculo {
+    width: 100%;
+
+    position: relative;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INPUT / ÁREA PRINCIPAL
+========================================================= */
+
+#prompt-analise-curriculo {
+    width: 100%;
+    height: 185px;
+
+    padding: 16px;
+
+    padding-right: 60px;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    border-radius: 10px;
+
+    border: none;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   UPLOAD
+========================================================= */
 
 #container-upload-do-cv {
     position: absolute;
-    /* top: 80px;
-    right: 925px; */
+
+    left: 15px;
+    bottom: 15px;
+
     padding: 5px;
+
     box-shadow: 1px 1px 10px #00000035;
+
     border-radius: 20px;
+
     display: flex;
     align-items: center;
-    color: #fff;
+    transition: .3s ease-in-out;
+    z-index: 2;
 }
 
-/* Input upload */
+#container-upload-do-cv:hover {
+    box-shadow: 1px 1px 10px #000000c9;
+}
+
+/* Input real */
+
 #upload-cv {
     display: none;
 }
+
+
+/* Ícone de upload */
 
 #icone-upload {
     cursor: pointer;
 }
 
-/* Input do prompt */
-#prompt-analise-curriculo {
-    min-width: 630px;
-    padding-top: 12px;
-    padding-left: 12px;
-    padding-bottom: 110px;
-    outline: none;
-    border-radius: 10px;
-    border: none;
-}
+/* =========================================================
+   BOTÃO ENVIAR
+========================================================= */
 
 #container-btn-enviar-curriculo {
     position: absolute;
-    bottom: 46%;
-    right: 28%;
-    cursor: pointer;
+
+    right: 15px;
+    bottom: 15px;
+
+    z-index: 2;
 }
 
-/* Botão enviar curriculo para a IA analisar */
+
+/* Botão */
+
 #btn-enviar-curriculo {
+    width: 45px;
+    height: 45px;
+
     background-color: var(--preto);
+
     color: var(--branco);
+
     border: none;
+
     display: flex;
-    cursor: pointer;
+
     align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
     padding: 5px;
-    border-radius: 20px;
+
+    border-radius: 50%;
+}
+
+#btn-enviar-curriculo:hover {
+    box-shadow: 1px 1px 10px #000000b6;
+    transition: .3s ease-in-out;
+}
+
+/* =========================================================
+   MOBILE
+   ATÉ 992px
+========================================================= */
+
+@media screen and (max-width: 992px) {
+
+    #segunda-secao-secao-analisador-curriculo {
+        height: 80vh;
+
+        padding: 0 20px;
+
+        box-sizing: border-box;
+    }
+
+
+    #container-form-analisador-de-curricuclo {
+        width: 100%;
+        max-width: 600px;
+    }
+
+
+    #formulario-analisador-decurriculo {
+        width: 100%;
+    }
+
+
+    #prompt-analise-curriculo {
+        width: 100%;
+
+        height: 150px;
+
+        padding: 12px;
+
+        padding-right: 50px;
+
+        font-size: 14px;
+    }
+
+
+    #container-upload-do-cv {
+        left: 12px;
+        bottom: 12px;
+
+        padding: 4px;
+    }
+
+
+    #container-btn-enviar-curriculo {
+        display: flex;
+        align-items: center;
+        font-size: 250px;
+        right: 12px;
+        bottom: 12px;
+    }
+
+
+    #btn-enviar-curriculo {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    #icone-upload,
+    #icone-fazer-analise {
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media screen and (max-width: 500px) {
+
+    #segunda-secao-secao-analisador-curriculo {
+        height: 78vh;
+
+        padding: 0 15px;
+    }
+
+
+    #container-form-analisador-de-curricuclo {
+        width: 100%;
+    }
+
+
+    #prompt-analise-curriculo {
+        width: 100%;
+
+        height: 120px;
+
+        padding: 10px;
+
+        padding-right: 45px;
+
+        font-size: 12px;
+
+        border-radius: 8px;
+    }
+
+
+    #container-upload-do-cv {
+        left: 10px;
+        bottom: 10px;
+    }
+
+
+    #container-btn-enviar-curriculo {
+        right: 10px;
+        bottom: 10px;
+    }
+
+
+    #btn-enviar-curriculo {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    #icone-upload,
+    #icone-fazer-analise {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+    }
+
 }

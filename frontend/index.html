@@ -11,59 +11,73 @@
     />
   </head>
   <body>
-    <!-- Parte do topo -->
-    <header>
-      <!-- Video -->
-      <video autoplay muted loop id="video-fundo">
-        <source src="src/assets/video/video para o site.mp4" type="video/mp4" />
-        Seu navegador não suporta vídeos.
-      </video>
+  
+      <!-- Parte do topo -->
+      <header>
 
-      <!-- Parte da navegação -->
-      <nav id="container-nav-bar">
-        <!-- Container logo Aulto -->
-        <div id="lado-esquerdo-nav-bar">
-          <img
-            src="src/assets/image/Logo + Logotipo(R)Novo.png"
-            alt="Logotipo AULTO"
-          />
-        </div>
+        <!-- Video -->
+        <video autoplay muted loop id="video-fundo">
+          <source src="src/assets/video/video para o site.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeos.
+        </video>
 
-        <!-- Lado direito area de navegação -->
-        <div id="container-links-nav-bar">
-          <ul>
-            <li><a href="#">Nova análise</a></li>
-            <li><a href="#">Relatorio</a></li>
-            <li><a href="#">Planos</a></li>
-            <li><a href="#">Historico</a></li>
-          </ul>
-        </div>
+        <!-- Parte da navegação -->
+        <nav id="container-nav-bar">
 
-        <!-- Container login e criar conta -->
-        <div class="container-login-e-criar-conta">
+          <!-- Container logo AULTO -->
+          <div id="lado-esquerdo-nav-bar">
+            <img
+              src="src/assets/image/Logo + Logotipo(R)Novo.png"
+              alt="Logotipo AULTO"
+            />
+          </div>
 
-          <a class="link-para-login" href="#">Sing in</a>
+          <!-- Lado direito / área de navegação -->
+          <div id="container-links-nav-bar">
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Nova análise</a></li>
+              <li><a href="#">Relatorio</a></li>
+              <li><a href="#">Planos</a></li>
+              <li><a href="#">Historico</a></li>
+            </ul>
+          </div>
 
-          <a class="btn-criar-conta" href="#">Create account </a>
+          <!-- Container login e criar conta -->
+          <div class="container-login-e-criar-conta">
+            <a class="link-para-login" href="#">Sing in</a>
+            <a class="btn-criar-conta" href="#">Create account</a>
+          </div>
 
-        </div>
+          <!-- Menu hamburguer -->
+          <div class="container-menu-burguer">
+            <span
+              class="material-symbols-outlined"
+              id="menu-burguer"
+              onclick="menuBurguer()"
+            >
+              menu
+            </span>
+          </div>
 
-        <div class="container-menu-burguer">
-          <span class="material-symbols-outlined" id="menu-burguer" onclick="menuBurguer()">menu</span>
-        </div>
+          <!-- Menu da versão mobile -->
+          <div id="container-links-para-versao-mobile">
 
-        <div id="container-links-para-versao-mobile">
-          <ul>
-            <li><a href="#">Nova análise</a></li>
-            <li><a href="#">Relatorio</a></li>
-            <li><a href="#">Planos</a></li>
-            <li><a href="#">Historico</a></li>
-          </ul>
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Nova análise</a></li>
+              <li><a href="#">Relatorio</a></li>
+              <li><a href="#">Planos</a></li>
+              <li><a href="#">Historico</a></li>
+            </ul>
 
-        </div>
+          </div>
 
-      </nav>
-    </header>
+        </nav>
+
+      </header>
+
+
 
 
     <!-- Parte do conteudo -->

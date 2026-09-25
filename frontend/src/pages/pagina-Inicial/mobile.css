@@ -1,12 +1,4 @@
 @media screen and (max-width: 992px){
-    #container-links-nav-bar {
-        display: none;
-    }
-    
-    #menu-burguer {
-        display: block;
-    }
-
     /* Primeira seção */
     #container-conteudo-primeira-secao {
         text-align: center;
@@ -50,5 +42,16 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+    }
+
+    /* Seção FAQ */
+    .pergunta-da-faq { 
+        font-size: 20px;
+    }
+
+    .container-resposta-da-faq > p {
+        font-size: 18px;
+        margin-top: 20px;
+        padding: 20px;
     }
 }
