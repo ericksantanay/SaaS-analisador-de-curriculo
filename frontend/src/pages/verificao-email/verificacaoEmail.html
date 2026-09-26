@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verificar Email</title>
+
+    <link rel="stylesheet" href="verificacaoEmail.css">
+    <link rel="stylesheet" href="../../global.css">
+</head>
+
+<body>
+
+    <main class="verification-container">
+
+        <section class="verification-card">
+
+            <div class="verification-header">
+                <h1>Verifique seu email</h1>
+
+                <p>
+                    Enviamos um código de verificação para o seu email.
+                    Digite o código abaixo para continuar.
+                </p>
+            </div>
+
+            <form id="form-verificacao">
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="seu@email.com"
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="codigo-verificacao">
+                        Código de verificação
+                    </label>
+
+                    <input
+                        type="text"
+                        id="codigo-verificacao"
+                        name="codigo-verificacao"
+                        placeholder="Digite o código"
+                        maxlength="7"
+                        inputmode="numeric"
+                    >
+                </div>
+
+                <button type="submit" id="btn-verificar">
+                    Verificar código
+                </button>
+
+            </form>
+
+            <div class="resend-container">
+
+                <p>Não recebeu o código?</p>
+
+                <button type="button" id="btn-novo-codigo">
+                    Pedir novo código
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
