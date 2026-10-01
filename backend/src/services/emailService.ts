@@ -1,6 +1,8 @@
 import nodemailer from "nodemailer";
 
 export async function emailServico(email: string, codigoGerado: string) {
+
+    console.log("Chegou no email Service")
     // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
