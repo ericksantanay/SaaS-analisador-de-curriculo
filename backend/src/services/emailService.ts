@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+console.log("1 - Entrou no emailService");
 
 export async function emailServico(
     email: string,

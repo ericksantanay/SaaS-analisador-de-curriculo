@@ -6,8 +6,10 @@ import { emailServico }  from "../services/emailService";
 
 const router = Router();
 
+console.log("ARQUIVO DE CADASTRO FOI CARREGADO");
 router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
 
+    console.log("A");
     const {nome, email, senha} = req.body;
 
     //  Verificação caso o usuario 
@@ -24,16 +26,21 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
             }
         });
 
+        console.log("B");
         // Senha
         const salt = await bcrypt.genSalt(10);
+        console.log("C");
         const senhaCriptografada= await bcrypt.hash(senha, salt);
 
+        console.log("D");
         // Codigo gerado
         const codigoGerado = Math.floor(1000000 + Math.random() * 10000000).toString();
 
+        console.log("E");
         // Caso o usuario não 
         if (!buscarUsuario) {
             
+            console.log("F");
             const conta = await prisma.usuarios.create({
                 data: {
                     nome: nome,
@@ -44,10 +51,11 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
                     plano: "gratis"
                 }
             });
+            console.log("G");
 
             console.log("Enviou no cadastro")
             await emailServico(email, codigoGerado);
-
+            console.log("H");
             return res.status(201).json({mensagem: "Conta cadastrada com sucesso."});
         }else {
             return res.status(409).json({mensagem: "Essa conta ja esta cadastrada."});
