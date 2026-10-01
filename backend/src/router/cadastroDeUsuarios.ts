@@ -45,7 +45,7 @@ router.post("/cadastroDeUsuarios", async (req: Request, res: Response) => {
                 }
             });
 
-            emailServico(email, codigoGerado);
+            await emailServico(email, codigoGerado);
 
             return res.status(201).json({mensagem: "Conta cadastrada com sucesso."});
         }else {
