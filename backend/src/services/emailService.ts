@@ -1,41 +1,42 @@
 import nodemailer from "nodemailer";
 
-export async function emailServico(email: string, codigoGerado: string) {
+export async function emailServico(
+    email: string,
+    codigoGerado: string
+) {
+    console.log("Chegou no email Service");
 
-    console.log("Chegou no email Service")
-    // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
-        secure: false, // treue  só para a porta 467 as outras é false
+        secure: false,
         auth: {
             user: process.env.SMTP_USER,
             pass: process.env.SMTP_PASS
         }
     });
 
-    // Verify do transporter
     try {
+
         await transporter.verify();
+
+        console.log("SMTP funcionando!");
+
+        // Enviando email
+        await transporter.sendMail({
+            from: `noroleplay <${process.env.SMTP_USER}>`,
+            to: email,
+            subject: "Código de verificação",
+            html: 
+            `<h1>Olá</h1> 
+            <p>Esse é o seu código para verificar o seu email:${codigoGerado}</p>`,
+            text: `Esse é o seu código para verificar o seu email: ${codigoGerado}`
+        });
+
+        console.log("Código enviado com sucesso!");
+
     } catch (error) {
-        console.log("Erro:" + error);
-    };
-
-    console.log("Email e codigo gerado", email, codigoGerado)
-    // Enviar os emails
-    try {
-
-        transporter.sendMail({
-        from: `noroleplay<${process.env.SMTP_USER}>`, // Quem esta enviando 
-        to: `${email}`,
-        subject: `Codigo de verificação`,
-        html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar do seu email: ${codigoGerado}</p>`,
-        text: `Esse é o seu codigo para verificar o seu Email:${codigoGerado}`
-    })
-    .then(() => console.log("Codigo enviado com sucesso!")); 
-
-    } catch (error) {
-        console.log("Erro" + error);
-        return
-    };
-};
+        console.log("Erro ao enviar email:", error);
+        throw error;
+    }
+}
