@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-export async function emailServico(emailUser: string, codigoGerado: string) {
+export async function emailServico(email: string, codigoGerado: string) {
     // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -24,9 +24,9 @@ export async function emailServico(emailUser: string, codigoGerado: string) {
 
         transporter.sendMail({
         from: `noroleplay<${process.env.SMTP_USER}>`, // Quem esta enviando 
-        to: `${emailUser}`,
+        to: `${email}`,
         subject: `Codigo de verificação`,
-        html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar do seu email: ${codigoGerado}</p>`,
+        html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar do seu etmail: ${codigoGerado}</p>`,
         text: `Esse é o seu codigo para verificar o seu Email:${codigoGerado}`
     })
     .then(() => console.log("Codigo enviado com sucesso!")); 
