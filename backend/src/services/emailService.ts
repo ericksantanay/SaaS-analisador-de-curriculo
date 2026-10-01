@@ -19,6 +19,7 @@ export async function emailServico(email: string, codigoGerado: string) {
         console.log("Erro:" + error);
     };
 
+    console.log("Email e codigo gerado", email, codigoGerado)
     // Enviar os emails
     try {
 
@@ -26,7 +27,7 @@ export async function emailServico(email: string, codigoGerado: string) {
         from: `noroleplay<${process.env.SMTP_USER}>`, // Quem esta enviando 
         to: `${email}`,
         subject: `Codigo de verificação`,
-        html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar do seu etmail: ${codigoGerado}</p>`,
+        html: `<H1>Olá</H1> <p>Esse é o seu codigo para verificar do seu email: ${codigoGerado}</p>`,
         text: `Esse é o seu codigo para verificar o seu Email:${codigoGerado}`
     })
     .then(() => console.log("Codigo enviado com sucesso!")); 
