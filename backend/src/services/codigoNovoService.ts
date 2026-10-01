@@ -31,7 +31,7 @@ export async function novoCodigoDeAcessoService(emailDoUsuario: string) {
 
         const email: string = usuario.email;
         // 
-        await emailServico(email, codigoGerado);
+        // await emailServico(email, codigoGerado);
         // 
         return  atualizandoOCodigoDeAcesso;
     };
