@@ -1,55 +1,41 @@
-import nodemailer from "nodemailer";
-import dns from "node:dns";
+import { Resend } from "resend";
 
-// Faz o Node priorizar IPv4
-dns.setDefaultResultOrder("ipv4first");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function emailServico(email: string, codigoGerado: string) {
 
     console.log("1 - Entrou no emailService");
 
-    const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
-
-        auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
-        },
-
-        connectionTimeout: 10000,
-        greetingTimeout: 10000,
-        socketTimeout: 10000
-    });
-
-    console.log("2 - Transporter criado");
-
     try {
 
-        console.log("3 - Antes do verify");
-
-        await transporter.verify();
-
-        console.log("4 - Verify passou");
-
-        await transporter.sendMail({
-            from: `Analisador de Currículo <${process.env.SMTP_USER}>`,
-            to: email,
+        const { data, error } = await resend.emails.send({
+            from: "Analisador de Currículo <onboarding@resend.dev>",
+            to: [email],
             subject: "Código de verificação",
             html: `
                 <h1>Olá!</h1>
-                <p>Seu código de verificação é:</p>
+
+                <p>
+                    Esse é o seu código para verificar o seu email:
+                </p>
+
                 <h2>${codigoGerado}</h2>
             `,
-            text: `Seu código de verificação é: ${codigoGerado}`
         });
 
-        console.log("5 - Email enviado com sucesso!");
+        if (error) {
+            console.error("Erro do Resend:", error);
+            throw new Error(error.message);
+        }
+
+        console.log("Email enviado com sucesso!");
+        console.log("ID do email:", data?.id);
+
+        return data;
 
     } catch (error) {
 
-        console.error("ERRO NO EMAIL:", error);
+        console.error("Erro ao enviar email:", error);
 
         throw error;
     }

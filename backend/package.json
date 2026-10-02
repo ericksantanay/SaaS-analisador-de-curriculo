@@ -23,7 +23,7 @@
     "jsonwebtoken": "^9.0.3",
     "mercadopago": "^3.6.0",
     "multer": "^2.2.0",
-    "nodemailer": "^9.0.5"
+    "resend": "^6.32.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
