@@ -1,41 +1,57 @@
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from "nodemailer";
 
 export async function emailServico(email: string, codigoGerado: string) {
 
     console.log("1 - Entrou no emailService");
 
+    const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+
+    auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
+    },
+
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 10000
+});
+
+    console.log("2 - Transporter criado");
+
     try {
 
-        const { data, error } = await resend.emails.send({
-            from: "Analisador de Currículo <onboarding@resend.dev>",
-            to: [email],
-            subject: "Código de verificação",
-            html: `
-                <h1>Olá!</h1>
+        console.log("3 - Antes do verify");
 
-                <p>
-                    Esse é o seu código para verificar o seu email:
-                </p>
+        await transporter.verify();
 
-                <h2>${codigoGerado}</h2>
-            `,
-        });
-
-        if (error) {
-            console.error("Erro do Resend:", error);
-            throw new Error(error.message);
-        }
-
-        console.log("Email enviado com sucesso!");
-        console.log("ID do email:", data?.id);
-
-        return data;
+        console.log("4 - Verify passou");
 
     } catch (error) {
 
-        console.error("Erro ao enviar email:", error);
+        console.error("ERRO NO VERIFY:", error);
+
+        throw error;
+    }
+
+    try {
+
+        console.log("5 - Antes do sendMail");
+
+        await transporter.sendMail({
+            from: `"Analisador de Currículo" <${process.env.SMTP_USER}>`,
+            to: email,
+            subject: "Código de verificação",
+            text: `Seu código de verificação é: ${codigoGerado}`
+        });
+
+        console.log("6 - Email enviado");
+
+    } catch (error) {
+
+        console.error("ERRO NO SENDMAIL:", error);
 
         throw error;
     }
