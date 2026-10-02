@@ -1,4 +1,8 @@
 import nodemailer from "nodemailer";
+import dns from "node:dns";
+
+// Faz o Node priorizar IPv4
+dns.setDefaultResultOrder("ipv4first");
 
 export async function emailServico(email: string, codigoGerado: string) {
 
@@ -29,29 +33,23 @@ export async function emailServico(email: string, codigoGerado: string) {
 
         console.log("4 - Verify passou");
 
-    } catch (error) {
-
-        console.error("ERRO NO VERIFY:", error);
-
-        throw error;
-    }
-
-    try {
-
-        console.log("5 - Antes do sendMail");
-
         await transporter.sendMail({
-            from: `"Analisador de Currículo" <${process.env.SMTP_USER}>`,
+            from: `Analisador de Currículo <${process.env.SMTP_USER}>`,
             to: email,
             subject: "Código de verificação",
+            html: `
+                <h1>Olá!</h1>
+                <p>Seu código de verificação é:</p>
+                <h2>${codigoGerado}</h2>
+            `,
             text: `Seu código de verificação é: ${codigoGerado}`
         });
 
-        console.log("6 - Email enviado");
+        console.log("5 - Email enviado com sucesso!");
 
     } catch (error) {
 
-        console.error("ERRO NO SENDMAIL:", error);
+        console.error("ERRO NO EMAIL:", error);
 
         throw error;
     }
